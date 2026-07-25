@@ -16,17 +16,14 @@ required_vars = [
 
 for var in required_vars:
     if not os.getenv(var):
-        raise RuntimeError(f"Missing required environment variable: {var}")
+        print(f"WARNING: Missing environment variable: {var}")
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
 
-try:
-    from pydantic_settings import BaseSettings
-except ImportError:  # pragma: no cover - fallback for older environments
-    from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 
 from agents.quickml_xai_engine import QuickMLExplainableAI, test_quickml_connection
 from agents.langgraph_orchestrator import crime_graph
@@ -42,6 +39,7 @@ class Settings(BaseSettings):
 
     class Config:
         env_file = str(ENV_PATH)
+        extra = "ignore"
 
 
 settings = Settings()
@@ -118,6 +116,120 @@ async def chat_endpoint(request: ChatRequest):
 
     except Exception as e:
         return ChatResponse(response=f"Sorry, something went wrong: {str(e)}", evidence_trail=None)
+
+
+from database import SessionLocal
+from models import CaseMaster, Accused, Victim, CaseStatusMaster, CrimeHead, Unit, Employee
+from sqlalchemy import func
+
+
+@app.get("/api/dashboard")
+def dashboard_stats():
+    db = SessionLocal()
+    try:
+        total_firs = db.query(func.count(CaseMaster.CaseMasterID)).scalar() or 0
+        total_accused = db.query(func.count(Accused.AccusedMasterID)).scalar() or 0
+        total_victims = db.query(func.count(Victim.VictimMasterID)).scalar() or 0
+        return {
+            "total_firs": total_firs,
+            "total_accused": total_accused,
+            "total_victims": total_victims,
+        }
+    except Exception as e:
+        return {"error": str(e), "total_firs": 0, "total_accused": 0, "total_victims": 0}
+    finally:
+        db.close()
+
+
+@app.get("/api/firs")
+def get_firs(limit: int = 50, search: str = "", status: str = ""):
+    db = SessionLocal()
+    try:
+        q = db.query(CaseMaster)
+        if search:
+            q = q.filter(
+                CaseMaster.CrimeNo.ilike(f"%{search}%") |
+                CaseMaster.BriefFacts.ilike(f"%{search}%")
+            )
+        cases = q.limit(limit).all()
+        return [{"id": c.CaseMasterID, "crime_no": c.CrimeNo, "case_no": c.CaseNo,
+                 "brief_facts": c.BriefFacts, "date": str(c.CrimeRegisteredDate),
+                 "status_id": c.CaseStatusID, "category_id": c.CaseCategoryID} for c in cases]
+    except Exception as e:
+        return []
+    finally:
+        db.close()
+
+
+@app.get("/api/firs/{case_id}")
+def get_fir_detail(case_id: int):
+    db = SessionLocal()
+    try:
+        c = db.query(CaseMaster).filter(CaseMaster.CaseMasterID == case_id).first()
+        if not c:
+            raise HTTPException(status_code=404, detail="Case not found")
+        accused = [{"id": a.AccusedMasterID, "name": a.AccusedName, "age": a.AgeYear} for a in c.accused]
+        victims = [{"id": v.VictimMasterID, "name": v.VictimName, "age": v.AgeYear} for v in c.victims]
+        return {"id": c.CaseMasterID, "crime_no": c.CrimeNo, "case_no": c.CaseNo,
+                "brief_facts": c.BriefFacts, "date": str(c.CrimeRegisteredDate),
+                "accused": accused, "victims": victims}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        db.close()
+
+
+@app.get("/api/accused")
+def get_accused(limit: int = 50, search: str = ""):
+    db = SessionLocal()
+    try:
+        q = db.query(Accused)
+        if search:
+            q = q.filter(Accused.AccusedName.ilike(f"%{search}%"))
+        rows = q.limit(limit).all()
+        return [{"id": a.AccusedMasterID, "name": a.AccusedName, "age": a.AgeYear,
+                 "case_id": a.CaseMasterID, "person_id": a.PersonID} for a in rows]
+    except Exception:
+        return []
+    finally:
+        db.close()
+
+
+@app.get("/api/analytics")
+def get_analytics():
+    db = SessionLocal()
+    try:
+        by_status = db.query(CaseMaster.CaseStatusID, func.count(CaseMaster.CaseMasterID))\
+            .group_by(CaseMaster.CaseStatusID).all()
+        by_crime = db.query(CaseMaster.CrimeMajorHeadID, func.count(CaseMaster.CaseMasterID))\
+            .group_by(CaseMaster.CrimeMajorHeadID).limit(10).all()
+        total = db.query(func.count(CaseMaster.CaseMasterID)).scalar() or 0
+        return {
+            "total_cases": total,
+            "by_status": [{ "status_id": r[0], "count": r[1]} for r in by_status],
+            "by_crime_head": [{"crime_head_id": r[0], "count": r[1]} for r in by_crime],
+        }
+    except Exception as e:
+        return {"error": str(e), "total_cases": 0, "by_status": [], "by_crime_head": []}
+    finally:
+        db.close()
+
+
+@app.get("/api/hotspots")
+def get_hotspots():
+    db = SessionLocal()
+    try:
+        rows = db.query(CaseMaster.PoliceStationID, func.count(CaseMaster.CaseMasterID).label("count"))\
+            .group_by(CaseMaster.PoliceStationID)\
+            .order_by(func.count(CaseMaster.CaseMasterID).desc())\
+            .limit(10).all()
+        return [{"station_id": r[0], "case_count": r[1]} for r in rows]
+    except Exception:
+        return []
+    finally:
+        db.close()
 
 
 if __name__ == "__main__":

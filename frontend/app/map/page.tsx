@@ -12,9 +12,7 @@ const kpis = [
   { title: 'Active Crime Zones', value: '18', change: '-2', isPositive: true, icon: 'MapPin' },
   { title: 'Police Stations', value: '14 Online', change: '100%', isPositive: true, icon: 'Shield' },
   { title: 'Active Patrol Units', value: '12 / 16', change: '+3', isPositive: true, icon: 'Users' },
-  { title: 'CCTV Nodes Active', value: '524 / 600', change: '87.3%', isPositive: true, icon: 'Eye' },
-];
-
+  
 const crimeMarkers = [
   { id: 'm1', label: 'Zone 4 - Gang Activity', risk: 'Critical', top: '28%', left: '35%', activity: '2 patrols dispatched', type: 'crime' },
   { id: 'm2', label: 'Transit Hub - Snatching', risk: 'High', top: '55%', left: '20%', activity: 'Patrol en route', type: 'crime' },
