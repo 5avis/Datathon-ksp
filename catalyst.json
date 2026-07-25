@@ -1,20 +1,21 @@
 {
   "functions": {
     "targets": [
-      "search_crime_records"
+      "crime_function"
     ],
-    "source": "functions"
+    "source": "crime_function",
+    "ignore": []
   },
   "appsail": [
     {
-      "source": ".",
+      "source": "backend",
       "name": "crime-analytics-backend"
     }
   ],
   "slate": [
     {
       "name": "crime-analytics-frontend",
-      "source": "crime-analytics-frontend"
+      "source": "frontend"
     }
   ]
 }

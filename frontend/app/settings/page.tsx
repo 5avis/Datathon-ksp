@@ -38,7 +38,7 @@ export default function SettingsPage() {
   const [notifications, setNotifications] = useState({ emergencyAlerts: true, caseUpdates: true, systemHealth: false, weeklyReport: true, loginAlerts: true, forecastAlerts: false });
 
   // API state
-  const [apiHost, setApiHost] = useState('http://localhost:8000');
+  const [apiHost, setApiHost] = useState(process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000');
   const [modelSelection, setModelSelection] = useState('CRIME-BERT-v4');
   const [temperature, setTemperature] = useState(0.2);
 

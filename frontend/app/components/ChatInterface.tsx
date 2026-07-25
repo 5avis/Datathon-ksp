@@ -1,10 +1,12 @@
-﻿"use client";
+"use client";
 import { useState, useRef, useEffect } from 'react';
 
 interface Message {
   role: 'user' | 'ai';
   content: string;
 }
+
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000';
 
 export default function ChatInterface() {
   const [messages, setMessages] = useState<Message[]>([
@@ -31,7 +33,7 @@ export default function ChatInterface() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8000/api/chat', {
+      const response = await fetch(`${BACKEND_URL}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: input, history: messages })

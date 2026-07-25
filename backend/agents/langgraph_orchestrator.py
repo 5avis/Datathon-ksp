@@ -1,4 +1,4 @@
-﻿from typing import TypedDict, Annotated, Sequence
+from typing import TypedDict, Annotated, Sequence
 from langgraph.graph import StateGraph, END
 from langgraph.graph.message import add_messages
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
@@ -39,14 +39,20 @@ def network_tool_node(state: AgentState):
     return {"messages": [AIMessage(content=content)], "database_context": {"tool": "network", "result": content}}
 
 def trend_tool_node(state: AgentState):
-    user_input = state["messages"][-1].content.lower()
+    user_input = state["messages"][-1].content.lower() if state["messages"] else ""
 
-    # naive parsing: fallback defaults
     parts = user_input.split()
-    location = parts[-2] if len(parts) > 1 else "unknown"
+    location = parts[-2] if len(parts) > 1 else "general"
     crime_type = parts[-1] if len(parts) > 1 else "general"
 
-    result = get_crime_trends.invoke({"location": location, "crime_type": crime_type})
+    try:
+        result = get_crime_trends.invoke({"location": location, "crime_type": crime_type})
+    except Exception:
+        try:
+            result = get_crime_trends.invoke(user_input)
+        except Exception as e:
+            result = f"0 cases found ({str(e)})"
+
     return {
         "messages": [AIMessage(content=f"Trend Analysis: {result}")],
         "database_context": {"tool": "trend", "result": result}

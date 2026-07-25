@@ -1,0 +1,14 @@
+{
+	"deployment": {
+		"name": "crime_function",
+		"stack": "Python 3.14.0",
+		"type": "advancedio",
+		"env_variables": {
+			"CATALYST_API_KEY": "[ENCRYPTION_KEY]",
+			"OPENAI_API_KEY": "[ENCRYPTION_KEY]"
+		}
+	},
+	"execution": {
+		"main": " main.py"
+	}
+}

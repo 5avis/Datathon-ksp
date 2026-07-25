@@ -24,7 +24,8 @@ class QuickMLExplainableAI:
         global quickml_client
 
         self.org_id = os.getenv("CATALYST_ORG_ID") or os.getenv("QUICKML_ORG_ID") or "60078554986"
-        self.access_token = os.getenv("ZOHO_ACCESS_TOKEN") or os.getenv("QUICKML_AUTH_TOKEN") or ""
+        self.auth_token = os.getenv("QUICKML_AUTH_TOKEN") or os.getenv("ZOHO_AUTH_TOKEN") or os.getenv("ZOHO_ACCESS_TOKEN") or ""
+        self.access_token = self.auth_token
         self.refresh_token = os.getenv("ZOHO_REFRESH_TOKEN", "")
         self.client_id = os.getenv("ZOHO_CLIENT_ID", "")
         self.client_secret = os.getenv("ZOHO_CLIENT_SECRET", "")
@@ -47,11 +48,13 @@ class QuickMLExplainableAI:
         quickml_client = self
 
     def _headers(self) -> dict:
-        return {
-            "Content-Type": "application/json",
-            "Authorization": f"Zoho-oauthtoken {self.access_token}",
-            "CATALYST-ORG": self.org_id
+        headers = {
+            "Authorization": f"Zoho-oauthtoken {self.auth_token}",
+            "Content-Type": "application/json"
         }
+        if self.org_id:
+            headers["CATALYST-ORG"] = self.org_id
+        return headers
 
     def _refresh_access_token(self) -> bool:
         if not self.refresh_token or not self.client_id or not self.client_secret:

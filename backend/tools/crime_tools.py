@@ -56,8 +56,12 @@ def search_crime_records(query: str) -> str:
 
 
 @tool
-def get_crime_trends(location: str, crime_type: str = "general") -> str:
+def get_crime_trends(location: str = "general", crime_type: str = "general") -> str:
     """Analyze crime trends and hotspots for a specific location and crime type."""
+    if isinstance(location, dict):
+        crime_type = location.get("crime_type", crime_type)
+        location = location.get("location", "general")
+
     session = SessionLocal()
     try:
         cases = (

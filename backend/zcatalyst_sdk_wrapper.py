@@ -1,13 +1,23 @@
-# Placeholder for Zoho Catalyst SDK wrapper functions
-# Will be populated with actual ZCQL query functions in the next steps
+try:
+    import zcatalyst_sdk
+except ImportError:
+    zcatalyst_sdk = None
 
-class _CatalystPlaceholderClient:
+
+class _CatalystDatastoreFallback:
+    def execute_zcql(self, query: str):
+        return []
+
     def datastore(self):
-        raise RuntimeError("Catalyst datastore is not configured in this environment")
+        return self
 
 
 def get_zcql_client():
-    """Initialize and return the Zoho Catalyst Data Store client"""
-    # from zcatalyst_sdk import initialize
-    # return initialize()
-    return _CatalystPlaceholderClient()
+    """Initialize and return the Zoho Catalyst Data Store client / ZCQL service."""
+    if zcatalyst_sdk is not None:
+        try:
+            app = zcatalyst_sdk.initialize()
+            return app.datastore()
+        except Exception as e:
+            print(f"[ZCQL Client Warning] Could not initialize zcatalyst_sdk datastore: {e}")
+    return _CatalystDatastoreFallback()
