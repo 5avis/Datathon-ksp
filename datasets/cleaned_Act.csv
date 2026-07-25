@@ -1,4 +1,15 @@
 ActCode,ActDescription,ShortName,Active
-IPC_SYN,Synthetic general criminal-law reference for demonstration,IPC-SYN,1
-IT_ACT_SYN,Synthetic cyber-law reference for demonstration,IT-ACT-SYN,1
-SPECIAL_LAW_SYN,Synthetic special-law reference for demonstration,SPECIAL-SYN,1
+BNS_2023,Bharatiya Nyaya Sanhita 2023,BNS,1
+IPC_1860,Indian Penal Code 1860,IPC,1
+IT_ACT_2000,Information Technology Act 2000,IT-ACT,1
+NDPS_1885,Narcotic Drugs and Psychotropic Substances Act 1985,NDPS,1
+POCSO_2012,Protection of Children from Sexual Offences Act 2012,POCSO,1
+ARMS_ACT_1959,Arms Act 1959,ARMS,1
+PMLA_2002,Prevention of Money Laundering Act 2002,PMLA,1
+UAPA_1967,Unlawful Activities Prevention Act 1967,UAPA,1
+MOTOR_VEHICLE_1988,Motor Vehicles Act 1988,MVA,1
+KGS_ACT_1963,Karnataka Gaming & Betting Act 1963,KGA,1
+KP_ACT_1963,Karnataka Police Act 1963,KPA,1
+COFEPOSA_1974,Conservation of Foreign Exchange Act 1974,COFEPOSA,1
+EXPLOSIVES_ACT_1884,Explosive Substances Act 1884,EXPLOSIVES,1
+SPECIAL_LAW_SYN,Synthetic Special Law Reference,SPECIAL-SYN,1

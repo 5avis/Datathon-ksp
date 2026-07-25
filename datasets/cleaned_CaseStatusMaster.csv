@@ -1,7 +1,11 @@
-CaseStatusID,CaseStatusName
-1,Chargesheeted
-2,Closed
-3,Convicted
-4,Pending
-5,Trial Pending
-6,Under Investigation
+CaseStatusID,LookupValue,Description,Active
+1,Active Investigation,Case under active police investigation and field enquiry,true
+2,Suspect Identified,Prime suspect identified by intelligence or forensics,true
+3,Charge Sheet Filed,Formal prosecution chargesheet submitted to magistrate,true
+4,Forensics Pending,Ballistics or digital evidence waiting for lab report,true
+5,Court Trial,Case undergoing judicial trial in sessions court,true
+6,Convicted,Accused convicted by honorable court,true
+7,Acquitted,Accused acquitted due to benefit of doubt,true
+8,Closed Untraced,Investigation closed due to lack of traceable leads,true
+9,Quashed,FIR proceedings quashed by High Court,true
+10,Transferred to CID,Case handed over to CID / Central Investigation,true

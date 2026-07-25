@@ -1,10 +1,6 @@
 import logging
 from flask import Request, make_response, jsonify
 import zcatalyst_sdk
-'''
-Execute below command to install SDK in global for enabling code suggestions
--> python3 -m pip install zcatalyst-sdk
-'''
 
 def handler(request: Request):
     app = zcatalyst_sdk.initialize()
@@ -12,7 +8,7 @@ def handler(request: Request):
     if request.path == "/":
         response = make_response(jsonify({
             'status': 'success',
-            'message': 'Hello from  main.py'
+            'message': 'Hello from crime_function main.py'
         }), 200)
         return response
     elif request.path == "/cache":

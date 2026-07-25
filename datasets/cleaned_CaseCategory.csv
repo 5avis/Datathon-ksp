@@ -1,2 +1,11 @@
-CaseCategoryID,LookupValue
-1,FIR
+CaseCategoryID,LookupValue,Active
+1,Special Report Case (SR Case),true
+2,Heinous Crime,true
+3,Organized Crime Syndicate,true
+4,White Collar Financial Crime,true
+5,Cyber Cell Special Investigation,true
+6,Narcotics & NDPS Special Operation,true
+7,Human & Minor Trafficking,true
+8,Property & Burglary Crime,true
+9,Juvenile Crime & Delinquency,true
+10,Public Order & Riot Crime,true

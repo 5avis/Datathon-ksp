@@ -1,5 +1,9 @@
-DesignationID,DesignationName,Active,SortOrder
-1,Investigating Officer,1,1
-2,Station House Officer,1,2
-3,Crime Analyst,1,3
-4,Police Constable,1,4
+DesignationID,DesignationTitle,RoleCategory,Active
+1,Station House Officer (SHO),Field Command,true
+2,Investigating Officer (IO),Investigation,true
+3,Cyber Cell Analyst,Digital Forensics,true
+4,Crime Branch Investigator,Special Investigation,true
+5,Tactical Response Lead,SWAT & Dispatch,true
+6,Intelligence Officer,Crime Analytics,true
+7,Fingerprint & Forensics Expert,Scientific Evidence,true
+8,Nodal Officer (Cyber & Banking),Inter-agency Liaison,true

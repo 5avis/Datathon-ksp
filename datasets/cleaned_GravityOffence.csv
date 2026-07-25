@@ -1,4 +1,5 @@
-GravityOffenceID,LookupValue
-1,Low
-2,Moderate
-3,High
+GravityID,GravityLevel,Description,Active
+1,Special Grave Crime,Capital offences or threat to national security,true
+2,Grave Crime,Major violent or high value financial offences,true
+3,Medium Crime,Property theft and non-violent offences,true
+4,Minor Offence,Petty brawls and minor infractions,true

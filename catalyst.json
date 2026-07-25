@@ -3,7 +3,7 @@
     "targets": [
       "crime_function"
     ],
-    "source": "crime_function",
+    "source": "functions",
     "ignore": []
   },
   "appsail": [

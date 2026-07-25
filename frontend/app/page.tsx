@@ -187,29 +187,29 @@ export default function Dashboard() {
 
           <main className="flex-1 p-6 space-y-8 max-w-7xl mx-auto w-full">
             {/* Header Banner */}
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-slate-800 pb-5">
+            <div className="glass-card p-6 flex flex-col md:flex-row md:items-center md:justify-between border-white/10 shadow-2xl backdrop-blur-2xl">
               <div>
                 <div className="flex items-center space-x-2">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-900/50 text-red-400 border border-red-700/50">
-                    <span className="w-1.5 h-1.5 mr-1.5 bg-red-500 rounded-full animate-pulse"></span>
+                  <span className="glass-badge bg-red-500/20 text-red-300 border-red-500/30">
+                    <span className="w-2 h-2 mr-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(239,68,68,0.8)]"></span>
                     DEFCON-2 ACTIVE
                   </span>
-                  <span className="text-xs text-slate-400">| National Crime Grid Sync: 99.9%</span>
+                  <span className="text-xs font-mono text-slate-400">| National Crime Grid Sync: 99.9%</span>
                 </div>
-                <h1 className="text-2xl font-bold text-white tracking-tight mt-1 font-sans">
+                <h1 className="text-2xl font-bold text-white tracking-tight mt-2 drop-shadow-md">
                   AI Crime Intelligence & Tactical Dispatch
                 </h1>
               </div>
               <div className="mt-4 md:mt-0 flex items-center space-x-3">
                 <button 
                   onClick={() => alert("Dossier exported to local server.")} 
-                  className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 rounded-lg text-sm font-medium transition shadow-sm"
+                  className="glass-button-secondary px-4 py-2 text-sm"
                 >
                   Export Dossier
                 </button>
                 <button 
                   onClick={() => alert("Creating new tactical operation...")}
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-sm font-medium transition shadow-lg shadow-blue-600/20 flex items-center space-x-2"
+                  className="glass-button px-4 py-2 text-sm flex items-center space-x-2"
                 >
                   <span>New Tactical Operation</span>
                 </button>

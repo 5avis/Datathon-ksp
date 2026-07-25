@@ -27,3 +27,15 @@ CrimeHeadID,CrimeGroupName,Active
 26,Attempted Murder,true
 27,Extortion,true
 28,Criminal Intimidation,true
+29,Organized Crime Syndicate,true
+30,Ransomware & Malware Extortion,true
+31,Money Laundering & Hawala,true
+32,Interstate Vehicle Smuggling,true
+33,Drone Narcotics Contraband,true
+34,Financial Securities Fraud,true
+35,Counterfeit Currency Racket,true
+36,Illegal Firearms Manufacturing,true
+37,Identity Theft & Phishing,true
+38,Illegal Betting & Online Gaming Racket,true
+39,Land Grabbing & Real Estate Fraud,true
+40,Underworld Gangland Retaliation,true

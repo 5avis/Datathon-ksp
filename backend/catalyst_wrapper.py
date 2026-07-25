@@ -20,7 +20,7 @@ def init_catalyst_client():
     if zcatalyst_sdk is None:
         raise RuntimeError("zcatalyst_sdk is not installed in this environment")
 
-    project_id = os.getenv("CATALYST_PROJECT_ID", "").strip()
+    project_id = os.getenv("CATALYST_PROJECT_ID", "45680000000016001").strip()
     auth_token = os.getenv("CATALYST_AUTH_TOKEN", "").strip()
     project_key = os.getenv("CATALYST_PROJECT_KEY", "").strip()
     project_domain = os.getenv("CATALYST_PROJECT_DOMAIN", "").strip()
@@ -31,12 +31,9 @@ def init_catalyst_client():
     print(f"[Catalyst] project_id present: {bool(project_id)}")
     print(f"[Catalyst] auth_token present: {bool(auth_token)}")
 
-    if not project_id and not auth_token:
-        raise RuntimeError("Catalyst environment variables missing: CATALYST_PROJECT_ID and CATALYST_AUTH_TOKEN")
-    if not project_id:
-        raise RuntimeError("Catalyst environment variable missing: CATALYST_PROJECT_ID")
-    if not auth_token:
-        raise RuntimeError("Catalyst environment variable missing: CATALYST_AUTH_TOKEN")
+    if not project_id or not auth_token:
+        print("[Catalyst Warning] Local environment running without CATALYST_PROJECT_ID or CATALYST_AUTH_TOKEN.")
+        return None
 
     missing_headers = [
         name for name, value in {
@@ -46,9 +43,8 @@ def init_catalyst_client():
         }.items() if not value
     ]
     if missing_headers:
-        raise RuntimeError(
-            "Catalyst header values missing: " + ", ".join(missing_headers)
-        )
+        print("[Catalyst Warning] Running without headers: " + ", ".join(missing_headers))
+        return None
 
     headers = {
         "X-ZC-ProjectId": project_id,

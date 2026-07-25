@@ -1,4 +1,26 @@
-ActCode,SectionCode,SectionDescription,Active
-IPC_SYN,SYN-01,Synthetic general offence section,1
-IT_ACT_SYN,SYN-02,Synthetic cyber offence section,1
-SPECIAL_LAW_SYN,SYN-03,Synthetic special offence section,1
+SectionCode,SectionDescription,ActCode,Active
+BNS_103,Punishment for Murder,BNS_2023,1
+BNS_109,Attempt to Murder,BNS_2023,1
+BNS_309,Robbery with Hurt,BNS_2023,1
+BNS_311,Gang Robbery & Dacoity,BNS_2023,1
+BNS_316,Chain Snatching & Street Theft,BNS_2023,1
+BNS_318,Cheating & Dishonest Inducement,BNS_2023,1
+BNS_335,House Breaking & Burglary,BNS_2023,1
+BNS_111,Organized Crime Syndicate Activity,BNS_2023,1
+BNS_113,Terrorist Acts & Sabotage,BNS_2023,1
+IPC_302,Punishment for Murder,IPC_1860,1
+IPC_307,Attempt to Murder,IPC_1860,1
+IPC_392,Punishment for Robbery,IPC_1860,1
+IPC_395,Punishment for Dacoity,IPC_1860,1
+IPC_420,Cheating and Dishonestly Inducing Delivery of Property,IPC_1860,1
+IPC_379,Punishment for Theft,IPC_1860,1
+IPC_457,Lurking House Trespass by Night,IPC_1860,1
+IT_66C,Identity Theft and Impersonation,IT_ACT_2000,1
+IT_66D,Cheating by Personation using Computer Resource,IT_ACT_2000,1
+IT_66E,Violation of Privacy & Digital Harassment,IT_ACT_2000,1
+IT_67,Publishing Obscene Material in Electronic Form,IT_ACT_2000,1
+NDPS_20,Illicit Traffic in Cannabis and Manufactured Drugs,NDPS_1885,1
+NDPS_22,Psychotropic Substances Possession & Commercial Quantity,NDPS_1885,1
+POCSO_4,Punishment for Penetrative Sexual Assault,POCSO_2012,1
+ARMS_25,Unlawful Possession of Firearms and Ammunition,ARMS_ACT_1959,1
+PMLA_3,Offence of Money Laundering and Hawala Channeling,PMLA_2002,1
