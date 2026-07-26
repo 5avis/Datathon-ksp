@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Bot, Sparkles, Shield, Zap, Brain, ChevronRight } from 'lucide-react';
+import { Bot, Shield, Zap, Brain, ChevronRight } from 'lucide-react';
 import AppLayout from '../components/AppLayout';
 import Sidebar from '../components/Sidebar';
 import TopNavbar from '../components/TopNavbar';
@@ -10,7 +10,7 @@ const capabilities = [
   { icon: Brain, title: 'Predictive Analysis', desc: 'Forecast crime hotspots using ML pattern recognition', color: 'text-purple-400', bg: 'bg-purple-500/10 border-purple-500/20' },
   { icon: Shield, title: 'Suspect Profiling', desc: 'Cross-reference criminal records and behavioral patterns', color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/20' },
   { icon: Zap, title: 'Real-time Alerts', desc: 'Instant contextual intelligence on live incidents', color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' },
-  { icon: Sparkles, title: 'Evidence Correlation', desc: 'Link forensic evidence across multiple case files', color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' },
+  { icon: Zap, title: 'Evidence Correlation', desc: 'Link forensic evidence across multiple case files', color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' },
 ];
 
 const sampleQueries = [

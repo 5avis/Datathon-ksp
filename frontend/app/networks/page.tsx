@@ -64,7 +64,7 @@ export default function NetworksPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  const onNodeClick: NodeMouseHandler = useCallback((_, node) => {
+  const onNodeClick: NodeMouseHandler = useCallback((_: any, node: any) => {
     setSelectedNode(prev => prev === node.id ? null : node.id);
   }, []);
 

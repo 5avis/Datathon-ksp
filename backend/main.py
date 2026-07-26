@@ -51,7 +51,6 @@ trusted_origins = os.getenv("TRUSTED_ORIGINS", "*").split(",")
 trusted_origins = [origin.strip() for origin in trusted_origins if origin.strip()]
 
 app = FastAPI(title="Crime Analytics AI Platform - Zoho Catalyst Edition")
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=trusted_origins if trusted_origins else ["*"],
