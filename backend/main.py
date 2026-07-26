@@ -2,11 +2,15 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-ENV_PATH = PROJECT_ROOT / ".env"
-
-# Load environment variables FIRST
-load_dotenv(dotenv_path=ENV_PATH, override=False)
+try:
+    PROJECT_ROOT = Path(__file__).resolve().parent
+    ENV_PATH = PROJECT_ROOT / ".env"
+    if ENV_PATH.exists():
+        load_dotenv(dotenv_path=ENV_PATH, override=False)
+    else:
+        load_dotenv(override=False)
+except Exception as e:
+    print(f"Env load notice: {e}")
 
 required_vars = [
     "CATALYST_PROJECT_ID", "CATALYST_AUTH_TOKEN",
@@ -34,11 +38,11 @@ import json
 
 
 class Settings(BaseSettings):
-    catalyst_project_id: str = ""
-    catalyst_auth_token: str = ""
+    catalyst_project_id: str = "45680000000016001"
+    catalyst_auth_token: str = "zctdev1f092f08c75ae4e9c4f0d8f651585b24d1c2a"
 
     class Config:
-        env_file = str(ENV_PATH)
+        env_file = str(ENV_PATH) if 'ENV_PATH' in locals() and ENV_PATH.exists() else ".env"
         extra = "ignore"
 
 
@@ -59,8 +63,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Create QuickML instance AFTER loading env vars
-quickml_ai = QuickMLExplainableAI()
+# Create QuickML instance safely AFTER loading env vars
+try:
+    quickml_ai = QuickMLExplainableAI()
+except Exception as e:
+    print(f"QuickML init notice: {e}")
+    quickml_ai = None
 
 
 @app.on_event("startup")
@@ -231,6 +239,9 @@ def get_hotspots():
         db.close()
 
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+listen_port = int(os.getenv("X_ZOHO_CATALYST_LISTEN_PORT", os.getenv("PORT", 9000)))
+print(f"Starting server on 0.0.0.0:{listen_port}")
+import uvicorn
+uvicorn.run(app, host="0.0.0.0", port=listen_port)
+
+
