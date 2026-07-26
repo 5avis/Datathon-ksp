@@ -1,0 +1,21 @@
+CrimeSubHeadID,CrimeHeadID,CrimeHeadName,SeqID
+1,7,ATM Skimming & Card Cloning,1
+2,7,SIM Swap Financial Fraud,2
+3,7,Phishing & Loan App Extortion,3
+4,7,Cryptocurrency Investment Scam,4
+5,25,Two Wheeler Theft,1
+6,25,Four Wheeler Luxury Car Hijack,2
+7,18,Synthetic Narcotics Distribution,1
+8,18,Commercial Cannabis Transport,2
+9,29,Contract Killing & Gang Violence,1
+10,29,Extortion from Real Estate Developers,2
+11,31,Shell Corporation Money Routing,1
+12,31,Crypto Hawala Transfers,2
+13,4,Night Housebreaking with Weapons,1
+14,5,Highway Snatching on Motorcycles,1
+15,14,Interstate Minor Trafficking Ring,1
+16,36,Country Made Pistol (Katta) Supply,1
+17,38,Illegal IPL Betting Syndicate,1
+18,39,Forged Land Title Deed Registration,1
+19,40,Underworld Retaliatory Firearm Attack,1
+20,30,Corporate Data Encryption Ransomware,1
