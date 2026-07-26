@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(140deg, #EAF4FC 0%, #D8E7F5 40%, #E3EEF8 70%, #FFFFFF 100%);
+  background-attachment: fixed;
+  color: #1F3250;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #3E8EDE;
+  color: #ffffff;
+}
+
+@layer components {
+  /* ==========================================================================
+     Web 2.0 Glossy Aesthetic Token System (Windows XP / Vista / WMP Era)
+     ========================================================================== */
+
+  /* Glossy OS Window / Panel Container */
+  .glass-card {
+    @apply relative overflow-hidden rounded-lg bg-white border border-[#B8C6D6] shadow-[0_8px_20px_rgba(20,80,160,0.15),0_2px_5px_rgba(0,0,0,0.08)];
+  }
+
+  .glass-card-hover {
+    @apply transition-all duration-200 hover:shadow-[0_10px_25px_rgba(30,96,184,0.22)] hover:border-[#3E8EDE];
+  }
+
+  /* Glossy Header Bar (Titlebar Gradient with Reflection) */
+  .glass-header {
+    background: linear-gradient(to bottom, #6BB8F0 0%, #3E8EDE 48%, #2A74CE 50%, #1D5DAE 100%);
+    border-top: 1px solid #A2D3FC;
+    border-bottom: 1px solid #104285;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), 0 2px 6px rgba(0, 0, 0, 0.15);
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Glossy Primary Sky-Blue Button */
+  .glass-button {
+    background: linear-gradient(to bottom, #72BCF2 0%, #3E8EDE 48%, #2872CF 50%, #1A5BB0 100%);
+    border: 1px solid #14498C;
+    border-top-color: #A2D3FC;
+    border-left-color: #6BB8F0;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 2px 4px rgba(0, 0, 0, 0.15);
+    @apply relative overflow-hidden rounded-md text-white font-bold transition-all duration-150 active:translate-y-[1px] active:shadow-inner;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-button:hover {
+    background: linear-gradient(to bottom, #85C8F7 0%, #4FA0EB 48%, #3681DD 50%, #2369C2 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 3px 8px rgba(30, 96, 184, 0.3);
+  }
+
+  /* Glossy Accent Green Action Button (Add / Sync / Start) */
+  .glass-button-green {
+    background: linear-gradient(to bottom, #93DC72 0%, #5FA83F 48%, #4A8C2E 50%, #366E20 100%);
+    border: 1px solid #275217;
+    border-top-color: #B9F59D;
+    border-left-color: #93DC72;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 2px 4px rgba(0, 0, 0, 0.15);
+    @apply relative overflow-hidden rounded-md text-white font-bold transition-all duration-150 active:translate-y-[1px];
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-button-green:hover {
+    background: linear-gradient(to bottom, #A4E685 0%, #6EB94C 48%, #579C39 50%, #427E29 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 3px 8px rgba(95, 168, 63, 0.35);
+  }
+
+  /* Glossy Secondary Metallic Neutral Button */
+  .glass-button-secondary {
+    background: linear-gradient(to bottom, #FFFFFF 0%, #ECF3F9 48%, #D7E4F0 50%, #C4D5E5 100%);
+    border: 1px solid #8FA3BA;
+    border-top-color: #FFFFFF;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 1px 3px rgba(0, 0, 0, 0.1);
+    @apply relative overflow-hidden rounded-md text-[#1A3459] font-bold transition-all duration-150 active:translate-y-[1px];
+  }
+
+  .glass-button-secondary:hover {
+    background: linear-gradient(to bottom, #FFFFFF 0%, #F5F9FD 48%, #E4EFF8 50%, #D2E2F1 100%);
+    border-color: #3E8EDE;
+    color: #1450A0;
+  }
+
+  /* Inset Sunken Input / Search Field */
+  .glass-input {
+    background: #FFFFFF;
+    border: 1px solid #94A6BC;
+    border-top-color: #6C829B;
+    border-left-color: #7A90A8;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.12), 0 1px 0 #FFFFFF;
+    @apply rounded-md px-3 py-1.5 text-xs text-[#1A2B4C] placeholder-[#7A8EA8] focus:outline-none focus:border-[#3E8EDE] focus:ring-1 focus:ring-[#3E8EDE]/50;
+  }
+
+  /* Glossy Badge / Pill */
+  .glass-badge {
+    background: linear-gradient(to bottom, #FFFFFF 0%, #F0F5FA 100%);
+    border: 1px solid #B0C2D6;
+    box-shadow: inset 0 1px 0 #FFFFFF, 0 1px 2px rgba(0,0,0,0.05);
+    @apply inline-flex items-center px-2.5 py-0.5 rounded text-xs font-bold font-mono text-[#1E3B66];
+  }
+
+  /* Web 2.0 OS Tab Item */
+  .web20-tab-active {
+    background: linear-gradient(to bottom, #FFFFFF 0%, #F4F8FC 100%);
+    border: 1px solid #A0B4CC;
+    border-bottom: 2px solid #FFFFFF;
+    box-shadow: inset 0 2px 0 #3E8EDE, 0 -2px 5px rgba(30, 96, 184, 0.1);
+    color: #1450A0;
+    font-weight: 700;
+  }
+
+  .web20-tab-inactive {
+    background: linear-gradient(to bottom, #E3EEF8 0%, #CBDCEE 100%);
+    border: 1px solid #B0C4DA;
+    color: #556F90;
+  }
+
+  .web20-tab-inactive:hover {
+    background: linear-gradient(to bottom, #EEF5FC 0%, #D8E6F4 100%);
+    color: #1A3E70;
+  }
+
+  .panel-surface {
+    @apply glass-card;
+  }
+
+  .panel-surface-hover {
+    @apply glass-card-hover;
+  }
+
+  .section-title {
+    @apply text-[11px] font-bold uppercase tracking-wider text-[#1E5296] font-mono;
+  }
+}
+
+/* Custom Scrollbar for Glossy UI */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #E8F1FA;
+  border-left: 1px solid #C4D5E8;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #B0C8E0 0%, #8AAECF 100%);
+  border: 1px solid #7A9EBF;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #6BB8F0 0%, #3E8EDE 100%);
+}
