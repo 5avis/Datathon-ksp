@@ -46,23 +46,23 @@ export default function ForecastingPage() {
 
   return (
     <AppLayout>
-      <div className="flex h-screen bg-slate-950 text-slate-100 font-sans antialiased overflow-hidden">
+      <div className="flex h-screen bg-[#EAF4FC] text-[#1F3250] font-sans antialiased overflow-hidden">
         <Sidebar />
         <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
           <TopNavbar />
           <main className="flex-1 p-6 space-y-6 max-w-7xl mx-auto w-full">
             {/* Header */}
-            <div className="border-b border-slate-800 pb-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+            <div className="border-b border-[#C0D1E3] pb-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
               <div>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-950 text-purple-400 border border-purple-700/50 mb-1">
-                  <span className="w-1.5 h-1.5 mr-1.5 bg-purple-500 rounded-full animate-pulse"></span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-bold bg-[#EDE7F6] text-[#6A1B9A] border border-[#CE93D8] mb-1">
+                  <span className="w-1.5 h-1.5 mr-1.5 bg-[#9C27B0] rounded-full animate-pulse"></span>
                   PREDICTIVE MODEL ONLINE
                 </span>
-                <h1 className="text-2xl font-bold text-white tracking-tight">Crime Forecasting & Predictive Intelligence</h1>
+                <h1 className="text-2xl font-bold text-[#1A3459] tracking-tight">Crime Forecasting &amp; Predictive Intelligence</h1>
               </div>
               <div className="flex items-center space-x-2">
-                <label className="text-xs text-slate-400">Forecast Horizon:</label>
-                <select value={horizon} onChange={e => setHorizon(e.target.value)} className="bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none">
+                <label className="text-xs text-[#526D8E]">Forecast Horizon:</label>
+                <select value={horizon} onChange={e => setHorizon(e.target.value)} className="bg-white border border-[#C0D1E3] rounded-lg px-3 py-2 text-xs text-[#1A2B4C] focus:outline-none">
                   <option value="7days">Next 7 Days</option>
                   <option value="30days">Next 30 Days</option>
                   <option value="90days">Next Quarter</option>
@@ -108,14 +108,14 @@ export default function ForecastingPage() {
                 <div className="space-y-3 mt-4">
                   {riskZones.map(z => (
                     <div key={z.zone} className="flex items-center space-x-3 text-xs">
-                      <span className="w-32 text-slate-400 shrink-0">{z.zone}</span>
-                      <div className="flex-1 bg-slate-800 rounded-full h-2 overflow-hidden">
+                      <span className="w-32 text-[#526D8E] shrink-0">{z.zone}</span>
+                      <div className="flex-1 bg-[#E0E9F3] rounded-full h-2 overflow-hidden">
                         <div
                           className={`h-full rounded-full transition-all ${z.risk >= 80 ? 'bg-red-500' : z.risk >= 65 ? 'bg-orange-500' : 'bg-amber-500'}`}
                           style={{ width: `${z.risk}%` }}
                         ></div>
                       </div>
-                      <span className={`w-8 text-right font-mono font-bold ${z.risk >= 80 ? 'text-red-400' : z.risk >= 65 ? 'text-orange-400' : 'text-amber-400'}`}>{z.risk}</span>
+                      <span className={`w-8 text-right font-mono font-bold ${z.risk >= 80 ? 'text-red-600' : z.risk >= 65 ? 'text-orange-600' : 'text-amber-600'}`}>{z.risk}</span>
                     </div>
                   ))}
                 </div>
@@ -123,10 +123,10 @@ export default function ForecastingPage() {
 
               {/* AI Recommendations */}
               <div className="panel-surface flex flex-col space-y-3 p-5">
-                <div className="flex items-center space-x-2 border-b border-slate-800 pb-3">
-                  <Brain className="w-4 h-4 text-purple-400" />
-                  <h3 className="font-semibold text-white text-sm">AI Tactical Recommendations</h3>
-                  <span className="ml-auto text-[10px] font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded">CRIME-BERT-v4</span>
+                <div className="flex items-center space-x-2 border-b border-[#C0D1E3] pb-3">
+                  <Brain className="w-4 h-4 text-[#6A1B9A]" />
+                  <h3 className="font-semibold text-[#1A3459] text-sm">AI Tactical Recommendations</h3>
+                  <span className="ml-auto text-[10px] font-mono text-[#6A1B9A] bg-[#EDE7F6] border border-[#CE93D8] px-2 py-0.5 rounded">CRIME-BERT-v4</span>
                 </div>
                 <div className="space-y-3 overflow-y-auto flex-1">
                   {aiRecommendations.map((r, i) => <InsightCard key={i} {...r} />)}
@@ -138,19 +138,19 @@ export default function ForecastingPage() {
 
         {/* FAB */}
         <div className="fixed bottom-6 right-6 z-50">
-          <button onClick={() => setIsChatOpen(true)} className="flex items-center space-x-2.5 px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold rounded-full shadow-2xl border border-blue-400/30 transition transform hover:-translate-y-0.5 text-sm">
-            <Bot className="w-5 h-5 text-blue-200" /><span>Ask Crime AI</span>
+          <button onClick={() => setIsChatOpen(true)} className="glass-button flex items-center space-x-2.5 px-5 py-3 rounded-full shadow-2xl text-sm">
+            <Bot className="w-5 h-5" /><span>Ask Crime AI</span>
           </button>
         </div>
         {isChatOpen && (
           <div className="fixed inset-0 z-50 flex justify-end">
-            <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" onClick={() => setIsChatOpen(false)}></div>
-            <div className="relative w-full max-w-lg bg-slate-900 border-l border-slate-800 flex flex-col h-full shadow-2xl">
-              <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800">
-                <div className="flex items-center space-x-2"><Bot className="w-5 h-5 text-blue-400" /><h3 className="font-bold text-white text-sm">Crime Intelligence Assistant</h3></div>
-                <button onClick={() => setIsChatOpen(false)} className="text-slate-400 hover:text-white p-1 hover:bg-slate-800 rounded"><X className="w-4 h-4" /></button>
+            <div className="absolute inset-0 bg-[#1A3459]/20 backdrop-blur-sm" onClick={() => setIsChatOpen(false)}></div>
+            <div className="relative w-full max-w-lg bg-white border-l border-[#C0D1E3] flex flex-col h-full shadow-2xl">
+              <div className="glass-header flex items-center justify-between px-6 py-4">
+                <div className="flex items-center space-x-2"><Bot className="w-5 h-5 text-white" /><h3 className="font-bold text-white text-sm">Crime Intelligence Assistant</h3></div>
+                <button onClick={() => setIsChatOpen(false)} className="text-white/80 hover:text-white p-1 rounded"><X className="w-4 h-4" /></button>
               </div>
-              <div className="flex-1 overflow-hidden p-4 bg-slate-950"><ChatInterface /></div>
+              <div className="flex-1 overflow-hidden p-4 bg-[#EAF4FC]"><ChatInterface /></div>
             </div>
           </div>
         )}

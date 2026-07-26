@@ -75,26 +75,26 @@ export default function ChatInterface() {
   };
 
   return (
-    <div className="glass-card flex flex-col h-[600px] border-white/10 backdrop-blur-2xl shadow-[0_16px_40px_rgba(0,0,0,0.5)]">
-      <div className="flex-1 overflow-y-auto p-5 space-y-4">
+    <div className="panel-surface flex flex-col h-[600px]">
+      <div className="flex-1 overflow-y-auto p-5 space-y-4 bg-[#EAF4FC]">
         {messages.map((msg: Message, index: number) => (
           <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-[82%] p-3.5 rounded-2xl backdrop-blur-md transition-all duration-300 ${
+            <div className={`max-w-[82%] p-3.5 rounded-xl transition-all duration-300 ${
               msg.role === 'user' 
-                ? 'bg-gradient-to-r from-blue-600/40 to-indigo-600/40 text-white rounded-br-none border border-blue-400/40 shadow-[0_4px_20px_rgba(37,99,235,0.3)]' 
-                : 'bg-slate-900/60 text-slate-100 rounded-bl-none border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.3)]'
+                ? 'glass-button text-white rounded-br-none shadow-md' 
+                : 'bg-white text-[#1A3459] rounded-bl-none border border-[#C0D1E3] shadow-md'
             }`}>
-              <p className="whitespace-pre-wrap text-sm leading-relaxed tracking-wide">{msg.content}</p>
+              <p className="whitespace-pre-wrap text-xs leading-relaxed tracking-wide">{msg.content}</p>
             </div>
           </div>
         ))}
         {isLoading && (
           <div className="flex justify-start">
-            <div className="bg-slate-900/60 p-3.5 rounded-2xl rounded-bl-none border border-white/10 backdrop-blur-md">
+            <div className="bg-white p-3.5 rounded-xl rounded-bl-none border border-[#C0D1E3] shadow-md">
               <div className="flex space-x-2">
-                <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
-                <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce delay-100"></div>
-                <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce delay-200"></div>
+                <div className="w-2 h-2 bg-[#3E8EDE] rounded-full animate-bounce"></div>
+                <div className="w-2 h-2 bg-[#3E8EDE] rounded-full animate-bounce delay-100"></div>
+                <div className="w-2 h-2 bg-[#3E8EDE] rounded-full animate-bounce delay-200"></div>
               </div>
             </div>
           </div>
@@ -102,19 +102,19 @@ export default function ChatInterface() {
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="p-4 border-t border-white/10 bg-slate-950/40 backdrop-blur-xl rounded-b-2xl">
+      <div className="p-4 border-t border-[#C0D1E3] bg-white rounded-b-xl">
         <div className="flex gap-2">
-          <button onClick={handleVoiceInput} className="glass-button-secondary p-3" title="Voice Input">🎤</button>
+          <button onClick={handleVoiceInput} className="glass-button-secondary p-3 text-sm" title="Voice Input">🎤</button>
           <input
             type="text"
             value={input}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
             onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && handleSend()}
             placeholder="Ask about crime patterns, networks, or FIRs..."
-            className="glass-input flex-1"
+            className="glass-input flex-1 text-xs"
           />
-          <button onClick={handleSend} disabled={isLoading} className="glass-button px-6 font-semibold tracking-wider">Send</button>
-          <button onClick={handleExportPDF} className="glass-button-secondary p-3" title="Export to PDF">📄</button>
+          <button onClick={handleSend} disabled={isLoading} className="glass-button px-6 text-xs font-semibold tracking-wider">Send</button>
+          <button onClick={handleExportPDF} className="glass-button-secondary p-3 text-sm" title="Export to PDF">📄</button>
         </div>
       </div>
     </div>

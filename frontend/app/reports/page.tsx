@@ -60,15 +60,15 @@ export default function ReportsPage() {
 
   return (
     <AppLayout>
-      <div className="flex h-screen bg-slate-950 text-slate-100 font-sans antialiased overflow-hidden">
+      <div className="flex h-screen bg-[#EAF4FC] text-[#1F3250] font-sans antialiased overflow-hidden">
         <Sidebar />
         <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
           <TopNavbar />
           <main className="flex-1 p-6 space-y-6 max-w-7xl mx-auto w-full">
             {/* Header */}
-            <div className="border-b border-slate-800 pb-5">
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700 mb-1">REPORTING ENGINE</span>
-              <h1 className="text-2xl font-bold text-white tracking-tight">Report Generation & Export Center</h1>
+            <div className="border-b border-[#C0D1E3] pb-5">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-bold bg-[#EAF4FC] text-[#1450A0] border border-[#B8C6D6] mb-1">REPORTING ENGINE</span>
+              <h1 className="text-2xl font-bold text-[#1A3459] tracking-tight">Report Generation &amp; Export Center</h1>
             </div>
 
             {/* KPIs */}
@@ -80,33 +80,33 @@ export default function ReportsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Generator Card */}
               <div className="panel-surface space-y-5 p-5 lg:col-span-1">
-                <div className="border-b border-slate-800 pb-3">
+                <div className="border-b border-[#C0D1E3] pb-3">
                   <div className="flex items-center space-x-2">
-                    <Plus className="w-4 h-4 text-blue-400" />
-                    <h3 className="font-semibold text-white text-sm">Generate New Report</h3>
+                    <Plus className="w-4 h-4 text-[#1450A0]" />
+                    <h3 className="font-semibold text-[#1A3459] text-sm">Generate New Report</h3>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   <div>
-                    <label className="text-[10px] font-semibold text-slate-500 uppercase tracking-wide block mb-1.5">Report Type</label>
-                    <select value={selectedType} onChange={e => setSelectedType(e.target.value)} className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2.5 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                    <label className="text-[10px] font-semibold text-[#657E9E] uppercase tracking-wide block mb-1.5">Report Type</label>
+                    <select value={selectedType} onChange={e => setSelectedType(e.target.value)} className="w-full bg-[#EAF4FC] border border-[#C0D1E3] rounded-lg px-3 py-2.5 text-xs text-[#1A2B4C] focus:outline-none focus:ring-1 focus:ring-blue-500">
                       {reportTypes.map(t => <option key={t} value={t}>{t}</option>)}
                     </select>
                   </div>
 
                   <div>
-                    <label className="text-[10px] font-semibold text-slate-500 uppercase tracking-wide block mb-1.5">Jurisdiction</label>
-                    <select value={selectedDistrict} onChange={e => setSelectedDistrict(e.target.value)} className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2.5 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                    <label className="text-[10px] font-semibold text-[#657E9E] uppercase tracking-wide block mb-1.5">Jurisdiction</label>
+                    <select value={selectedDistrict} onChange={e => setSelectedDistrict(e.target.value)} className="w-full bg-[#EAF4FC] border border-[#C0D1E3] rounded-lg px-3 py-2.5 text-xs text-[#1A2B4C] focus:outline-none focus:ring-1 focus:ring-blue-500">
                       {districts.map(d => <option key={d} value={d}>{d}</option>)}
                     </select>
                   </div>
 
                   <div>
-                    <label className="text-[10px] font-semibold text-slate-500 uppercase tracking-wide block mb-1.5">Output Format</label>
+                    <label className="text-[10px] font-semibold text-[#657E9E] uppercase tracking-wide block mb-1.5">Output Format</label>
                     <div className="flex space-x-2">
                       {(['PDF', 'CSV'] as const).map(f => (
-                        <button key={f} onClick={() => setFormat(f)} className={`flex-1 py-2 text-xs font-semibold rounded-lg border transition ${format === f ? 'bg-blue-600 border-blue-500 text-white' : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'}`}>{f}</button>
+                        <button key={f} onClick={() => setFormat(f)} className={`flex-1 py-2 text-xs font-semibold rounded-lg border transition ${format === f ? 'bg-blue-600 border-blue-500 text-white' : 'bg-[#EAF4FC] border-[#C0D1E3] text-[#526D8E] hover:text-[#1A2B4C]'}`}>{f}</button>
                       ))}
                     </div>
                   </div>
@@ -114,7 +114,7 @@ export default function ReportsPage() {
                   <button
                     onClick={handleGenerate}
                     disabled={generating}
-                    className={`w-full py-2.5 rounded-lg text-xs font-bold transition flex items-center justify-center space-x-2 ${generating ? 'bg-slate-800 text-slate-400 cursor-wait' : 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg'}`}
+                    className={`w-full py-2.5 rounded-lg text-xs font-bold transition flex items-center justify-center space-x-2 ${generating ? 'glass-button-secondary cursor-wait opacity-60' : 'glass-button shadow-lg'}`}
                   >
                     {generating ? (
                       <><span className="animate-spin w-3 h-3 border-2 border-slate-400 border-t-white rounded-full"></span><span>Generating...</span></>
@@ -124,7 +124,7 @@ export default function ReportsPage() {
                   </button>
 
                   {generated && (
-                    <div className="flex items-center space-x-2 text-xs text-emerald-400 animate-pulse">
+                    <div className="flex items-center space-x-2 text-xs text-[#2E7D32] font-semibold animate-pulse">
                       <CheckCircle className="w-3.5 h-3.5" />
                       <span>Report generated and added to history!</span>
                     </div>
@@ -132,15 +132,15 @@ export default function ReportsPage() {
                 </div>
 
                 {/* Export Actions */}
-                <div className="border-t border-slate-800 pt-4 space-y-2">
-                  <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wide">Quick Actions</p>
-                  <button onClick={() => alert('Exporting as PDF...')} className="w-full py-2 flex items-center space-x-2 bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white rounded-lg text-xs font-medium transition">
+                <div className="border-t border-[#C0D1E3] pt-4 space-y-2">
+                  <p className="text-[10px] font-semibold text-[#657E9E] uppercase tracking-wide">Quick Actions</p>
+                  <button onClick={() => alert('Exporting as PDF...')} className="glass-button-secondary w-full py-2 flex items-center space-x-2 text-xs font-medium">
                     <Download className="w-3.5 h-3.5 ml-3" /><span>Download Last Report (PDF)</span>
                   </button>
-                  <button onClick={() => alert('Exporting as CSV...')} className="w-full py-2 flex items-center space-x-2 bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white rounded-lg text-xs font-medium transition">
+                  <button onClick={() => alert('Exporting as CSV...')} className="glass-button-secondary w-full py-2 flex items-center space-x-2 text-xs font-medium">
                     <Download className="w-3.5 h-3.5 ml-3" /><span>Download Last Report (CSV)</span>
                   </button>
-                  <button onClick={() => alert('Opening print preview...')} className="w-full py-2 flex items-center space-x-2 bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white rounded-lg text-xs font-medium transition">
+                  <button onClick={() => alert('Opening print preview...')} className="glass-button-secondary w-full py-2 flex items-center space-x-2 text-xs font-medium">
                     <Printer className="w-3.5 h-3.5 ml-3" /><span>Print Preview</span>
                   </button>
                 </div>
@@ -148,11 +148,11 @@ export default function ReportsPage() {
 
               {/* Report History */}
               <div className="panel-surface flex flex-col space-y-3 p-5 lg:col-span-2">
-                <h3 className="font-semibold text-white text-sm border-b border-slate-800 pb-3">Report History</h3>
+                <h3 className="font-semibold text-[#1A3459] text-sm border-b border-[#C0D1E3] pb-3">Report History</h3>
                 <div className="overflow-x-auto flex-1">
                   <table className="w-full text-xs text-left">
                     <thead>
-                      <tr className="border-b border-slate-800 text-slate-500 font-mono uppercase text-[10px]">
+                      <tr className="border-b border-[#C0D1E3] text-[#657E9E] font-mono uppercase text-[10px]">
                         <th className="py-2 px-3">Report ID</th>
                         <th className="py-2 px-3">Name</th>
                         <th className="py-2 px-3">Format</th>
@@ -162,17 +162,17 @@ export default function ReportsPage() {
                         <th className="py-2 px-3">Actions</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-800/50">
+                    <tbody className="divide-y divide-[#E0E9F3]">
                       {history.map(r => (
-                        <tr key={r.id} className="hover:bg-slate-800/30 transition">
-                          <td className="py-3 px-3 font-mono text-blue-400 font-bold">{r.id}</td>
-                          <td className="py-3 px-3 text-white font-medium max-w-[200px] truncate">{r.name}</td>
-                          <td className="py-3 px-3"><span className={`text-[10px] font-mono px-1.5 py-0.5 rounded border ${r.type === 'PDF' ? 'bg-red-500/10 text-red-400 border-red-500/20' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'}`}>{r.type}</span></td>
-                          <td className="py-3 px-3 text-slate-400">{r.generatedBy}</td>
-                          <td className="py-3 px-3 text-slate-500 font-mono text-[10px]">{r.date}</td>
-                          <td className="py-3 px-3"><span className={`text-[10px] font-mono px-1.5 py-0.5 rounded border ${r.status === 'Ready' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : 'bg-slate-700/40 text-slate-500 border-slate-700'}`}>{r.status}</span></td>
+                        <tr key={r.id} className="hover:bg-[#EAF4FC] transition">
+                          <td className="py-3 px-3 font-mono text-[#1450A0] font-bold">{r.id}</td>
+                          <td className="py-3 px-3 text-[#1A3459] font-medium max-w-[200px] truncate">{r.name}</td>
+                          <td className="py-3 px-3"><span className={`text-[10px] font-mono px-1.5 py-0.5 rounded border ${r.type === 'PDF' ? 'bg-red-50 text-red-600 border-red-200' : 'bg-[#E8F5E9] text-[#2E7D32] border-[#A5D6A7]'}`}>{r.type}</span></td>
+                          <td className="py-3 px-3 text-[#526D8E]">{r.generatedBy}</td>
+                          <td className="py-3 px-3 text-[#657E9E] font-mono text-[10px]">{r.date}</td>
+                          <td className="py-3 px-3"><span className={`text-[10px] font-mono px-1.5 py-0.5 rounded border ${r.status === 'Ready' ? 'bg-[#E8F5E9] text-[#2E7D32] border-[#A5D6A7]' : 'bg-[#EAF4FC] text-[#657E9E] border-[#B8C6D6]'}`}>{r.status}</span></td>
                           <td className="py-3 px-3">
-                            <button onClick={() => alert(`Downloading ${r.id}...`)} className="text-slate-500 hover:text-blue-400 transition">
+                            <button onClick={() => alert(`Downloading ${r.id}...`)} className="text-[#657E9E] hover:text-[#1450A0] transition">
                               <Download className="w-3.5 h-3.5" />
                             </button>
                           </td>
@@ -188,19 +188,19 @@ export default function ReportsPage() {
 
         {/* FAB */}
         <div className="fixed bottom-6 right-6 z-50">
-          <button onClick={() => setIsChatOpen(true)} className="flex items-center space-x-2.5 px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold rounded-full shadow-2xl border border-blue-400/30 transition transform hover:-translate-y-0.5 text-sm">
-            <Bot className="w-5 h-5 text-blue-200" /><span>Ask Crime AI</span>
+          <button onClick={() => setIsChatOpen(true)} className="glass-button flex items-center space-x-2.5 px-5 py-3 rounded-full shadow-2xl text-sm">
+            <Bot className="w-5 h-5" /><span>Ask Crime AI</span>
           </button>
         </div>
         {isChatOpen && (
           <div className="fixed inset-0 z-50 flex justify-end">
-            <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" onClick={() => setIsChatOpen(false)}></div>
-            <div className="relative w-full max-w-lg bg-slate-900 border-l border-slate-800 flex flex-col h-full shadow-2xl">
-              <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800">
-                <div className="flex items-center space-x-2"><Bot className="w-5 h-5 text-blue-400" /><h3 className="font-bold text-white text-sm">Crime Intelligence Assistant</h3></div>
-                <button onClick={() => setIsChatOpen(false)} className="text-slate-400 hover:text-white p-1 hover:bg-slate-800 rounded"><X className="w-4 h-4" /></button>
+            <div className="absolute inset-0 bg-[#1A3459]/20 backdrop-blur-sm" onClick={() => setIsChatOpen(false)}></div>
+            <div className="relative w-full max-w-lg bg-white border-l border-[#C0D1E3] flex flex-col h-full shadow-2xl">
+              <div className="glass-header flex items-center justify-between px-6 py-4">
+                <div className="flex items-center space-x-2"><Bot className="w-5 h-5 text-white" /><h3 className="font-bold text-white text-sm">Crime Intelligence Assistant</h3></div>
+                <button onClick={() => setIsChatOpen(false)} className="text-white/80 hover:text-white p-1 rounded"><X className="w-4 h-4" /></button>
               </div>
-              <div className="flex-1 overflow-hidden p-4 bg-slate-950"><ChatInterface /></div>
+              <div className="flex-1 overflow-hidden p-4 bg-[#EAF4FC]"><ChatInterface /></div>
             </div>
           </div>
         )}
