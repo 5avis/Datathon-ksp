@@ -3,3 +3,11 @@ OccupationID,OccupationName
 2,Private Employee
 3,Business
 4,Other
+5,Government Employee
+6,Agriculture / Farmer
+7,Daily Wage Labourer
+8,Professional (Doctor / Lawyer / Engineer)
+9,IT / Software Professional
+10,Unemployed
+11,Armed Forces / Law Enforcement
+12,Retired / Senior Citizen

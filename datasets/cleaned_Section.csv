@@ -10,17 +10,42 @@ BNS_111,Organized Crime Syndicate Activity,BNS_2023,1
 BNS_113,Terrorist Acts & Sabotage,BNS_2023,1
 IPC_302,Punishment for Murder,IPC_1860,1
 IPC_307,Attempt to Murder,IPC_1860,1
+IPC_304B,Dowry Death,IPC_1860,1
+IPC_323,Voluntarily Causing Hurt,IPC_1860,1
+IPC_326,Voluntarily Causing Grievous Hurt by Dangerous Weapons,IPC_1860,1
+IPC_354,Assault or Criminal Force to Woman with Intent to Outrage Modesty,IPC_1860,1
+IPC_363,Punishment for Kidnapping,IPC_1860,1
+IPC_376,Punishment for Rape,IPC_1860,1
+IPC_379,Punishment for Theft,IPC_1860,1
+IPC_384,Punishment for Extortion,IPC_1860,1
 IPC_392,Punishment for Robbery,IPC_1860,1
 IPC_395,Punishment for Dacoity,IPC_1860,1
+IPC_409,Criminal Breach of Trust by Banker or Merchant,IPC_1860,1
 IPC_420,Cheating and Dishonestly Inducing Delivery of Property,IPC_1860,1
-IPC_379,Punishment for Theft,IPC_1860,1
-IPC_457,Lurking House Trespass by Night,IPC_1860,1
+IPC_457,Lurking House Trespass by Night or House Breaking,IPC_1860,1
+IPC_468,Forgery for Purpose of Cheating,IPC_1860,1
+IPC_489A,Counterfeiting Currency Notes or Bank Notes,IPC_1860,1
+IPC_498A,Cruelty by Husband or Relatives,IPC_1860,1
+IPC_506,Punishment for Criminal Intimidation,IPC_1860,1
+IT_66,Computer Related Offences and Hacking,IT_ACT_2000,1
 IT_66C,Identity Theft and Impersonation,IT_ACT_2000,1
 IT_66D,Cheating by Personation using Computer Resource,IT_ACT_2000,1
 IT_66E,Violation of Privacy & Digital Harassment,IT_ACT_2000,1
 IT_67,Publishing Obscene Material in Electronic Form,IT_ACT_2000,1
-NDPS_20,Illicit Traffic in Cannabis and Manufactured Drugs,NDPS_1885,1
-NDPS_22,Psychotropic Substances Possession & Commercial Quantity,NDPS_1885,1
+NDPS_20,Illicit Traffic in Cannabis and Manufactured Drugs,NDPS_1985,1
+NDPS_22,Psychotropic Substances Possession & Commercial Quantity,NDPS_1985,1
 POCSO_4,Punishment for Penetrative Sexual Assault,POCSO_2012,1
+POCSO_8,Punishment for Sexual Assault on Minor,POCSO_2012,1
 ARMS_25,Unlawful Possession of Firearms and Ammunition,ARMS_ACT_1959,1
 PMLA_3,Offence of Money Laundering and Hawala Channeling,PMLA_2002,1
+UAPA_15,Terrorist Act and Anti-National Activity,UAPA_1967,1
+POA_3,Offences of Atrocities against SC/ST,SCST_POA_1989,1
+PCA_7,Public Servant Taking Gratification / Bribe,PC_ACT_1988,1
+NIA_138,Dishonour of Cheque for Insufficiency of Funds,NI_ACT_1881,1
+EXCISE_32,Illegal Manufacture or Possession of Liquor,EXCISE_ACT_1965,1
+KGA_3,Opening or Keeping Gaming House / Online Gambling,KGS_ACT_1963,1
+MVA_185,Driving by a Drunken Person or Under Influence of Drugs,MOTOR_VEHICLE_1988,1
+EXPLOSIVES_3,Causing Explosion Likely to Endanger Life or Property,EXPLOSIVES_ACT_1884,1
+SYN-01,Synthetic Legal Section Reference Code 01,SPECIAL_LAW_SYN,1
+SYN-02,Synthetic Legal Section Reference Code 02,SPECIAL_LAW_SYN,1
+SYN-03,Synthetic Legal Section Reference Code 03,SPECIAL_LAW_SYN,1
