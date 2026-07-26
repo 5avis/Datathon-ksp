@@ -140,24 +140,24 @@ const timelineSteps = [
 
 // React Flow Mock Nodes & Edges for Criminal Network Preview
 const initialNodes: Node[] = [
-  { id: '1', type: 'input', data: { label: '🔴 Accused: R. "Bhai" Singh' }, position: { x: 250, y: 20 }, style: { background: '#7f1d1d', color: '#fef2f2', border: '1px solid #ef4444', borderRadius: '8px', fontWeight: 'bold', fontSize: '12px' } },
-  { id: '2', data: { label: '📱 Phone: +91 98XXX-XXXXX' }, position: { x: 80, y: 120 }, style: { background: '#1e293b', color: '#e2e8f0', border: '1px solid #475569', borderRadius: '8px', fontSize: '12px' } },
-  { id: '3', data: { label: '🏦 Bank: Shell Account #4492' }, position: { x: 250, y: 120 }, style: { background: '#1e293b', color: '#e2e8f0', border: '1px solid #475569', borderRadius: '8px', fontSize: '12px' } },
-  { id: '4', data: { label: '🚗 Vehicle: SUV MH-04-AB-1234' }, position: { x: 420, y: 120 }, style: { background: '#1e293b', color: '#e2e8f0', border: '1px solid #475569', borderRadius: '8px', fontSize: '12px' } },
-  { id: '5', data: { label: '📍 Location: Warehouse Sec-18' }, position: { x: 160, y: 220 }, style: { background: '#1e293b', color: '#e2e8f0', border: '1px solid #3b82f6', borderRadius: '8px', fontSize: '12px' } },
-  { id: '6', data: { label: '🟡 Victim: Diamond Jewellers' }, position: { x: 350, y: 220 }, style: { background: '#713f12', color: '#fef08a', border: '1px solid #eab308', borderRadius: '8px', fontSize: '12px' } },
-  { id: '7', type: 'output', data: { label: '📁 Evidence: Ballistics & CCTV #8891' }, position: { x: 250, y: 320 }, style: { background: '#065f46', color: '#d1fae5', border: '1px solid #10b981', borderRadius: '8px', fontWeight: 'bold', fontSize: '12px' } },
+  { id: '1', type: 'input', data: { label: '🔴 Accused: R. "Bhai" Singh' }, position: { x: 250, y: 20 }, style: { background: '#FDE8E8', color: '#9B1C1C', border: '2px solid #F89999', borderRadius: '10px', fontWeight: 'bold', fontSize: '11px', padding: '8px 12px' } },
+  { id: '2', data: { label: '📱 Phone: +91 98XXX-XXXXX' }, position: { x: 80, y: 120 }, style: { background: '#FFFFFF', color: '#1F3250', border: '1px solid #B8C6D6', borderRadius: '10px', fontSize: '11px', padding: '6px 10px' } },
+  { id: '3', data: { label: '🏦 Shell Account #4492' }, position: { x: 250, y: 120 }, style: { background: '#FFFFFF', color: '#1F3250', border: '1px solid #B8C6D6', borderRadius: '10px', fontSize: '11px', padding: '6px 10px' } },
+  { id: '4', data: { label: '🚗 SUV: MH-04-AB-1234' }, position: { x: 420, y: 120 }, style: { background: '#FFFFFF', color: '#1F3250', border: '1px solid #3E8EDE', borderRadius: '10px', fontSize: '11px', padding: '6px 10px' } },
+  { id: '5', data: { label: '📍 Warehouse, Sector-18' }, position: { x: 160, y: 220 }, style: { background: '#FFFFFF', color: '#1F3250', border: '1px solid #3E8EDE', borderRadius: '10px', fontSize: '11px', padding: '6px 10px' } },
+  { id: '6', data: { label: '🟡 Victim: Diamond Jewellers' }, position: { x: 350, y: 220 }, style: { background: '#FFF8E1', color: '#B76E00', border: '1px solid #FFE082', borderRadius: '10px', fontSize: '11px', padding: '6px 10px' } },
+  { id: '7', type: 'output', data: { label: '📁 Evidence: Ballistics & CCTV #8891' }, position: { x: 250, y: 320 }, style: { background: '#EBF7E6', color: '#2B6317', border: '2px solid #81C765', borderRadius: '10px', fontWeight: 'bold', fontSize: '11px', padding: '8px 12px' } },
 ];
 
 const initialEdges: Edge[] = [
-  { id: 'e1-2', source: '1', target: '2', animated: true, style: { stroke: '#94a3b8' } },
-  { id: 'e1-3', source: '1', target: '3', animated: true, style: { stroke: '#94a3b8' } },
-  { id: 'e1-4', source: '1', target: '4', animated: true, style: { stroke: '#94a3b8' } },
-  { id: 'e2-5', source: '2', target: '5', style: { stroke: '#64748b' } },
-  { id: 'e3-6', source: '3', target: '6', label: 'Wire Transfer', style: { stroke: '#ef4444' } },
-  { id: 'e4-6', source: '4', target: '6', label: 'Spotted at scene', style: { stroke: '#ef4444' } },
-  { id: 'e5-7', source: '5', target: '7', style: { stroke: '#10b981' } },
-  { id: 'e6-7', source: '6', target: '7', style: { stroke: '#10b981' } },
+  { id: 'e1-2', source: '1', target: '2', animated: true, style: { stroke: '#4FC3F7', strokeWidth: 1.5 } },
+  { id: 'e1-3', source: '1', target: '3', animated: true, style: { stroke: '#4FC3F7', strokeWidth: 1.5 } },
+  { id: 'e1-4', source: '1', target: '4', animated: true, style: { stroke: '#4FC3F7', strokeWidth: 1.5 } },
+  { id: 'e2-5', source: '2', target: '5', style: { stroke: '#334155' } },
+  { id: 'e3-6', source: '3', target: '6', label: 'Wire Transfer', style: { stroke: '#EF4444', strokeWidth: 1.5 }, labelStyle: { fill: '#F87171', fontSize: 10 } },
+  { id: 'e4-6', source: '4', target: '6', label: 'At Scene', style: { stroke: '#F59E0B', strokeWidth: 1.5 }, labelStyle: { fill: '#FBBF24', fontSize: 10 } },
+  { id: 'e5-7', source: '5', target: '7', style: { stroke: '#10B981', strokeWidth: 1.5 } },
+  { id: 'e6-7', source: '6', target: '7', style: { stroke: '#10B981', strokeWidth: 1.5 } },
 ];
 
 export default function Dashboard() {
@@ -177,7 +177,7 @@ export default function Dashboard() {
 
   return (
     <AppLayout>
-      <div className="flex h-screen bg-slate-950 text-slate-100 font-sans antialiased overflow-hidden">
+      <div className="flex h-screen bg-[#EAF4FC] text-[#1F3250] font-sans antialiased overflow-hidden">
         {/* Navigation Sidebar */}
         <Sidebar />
 
@@ -187,38 +187,38 @@ export default function Dashboard() {
 
           <main className="flex-1 p-6 space-y-8 max-w-7xl mx-auto w-full">
             {/* Header Banner */}
-            <div className="glass-card p-6 flex flex-col md:flex-row md:items-center md:justify-between border-white/10 shadow-2xl backdrop-blur-2xl">
+            <div className="glass-card p-4 flex flex-col md:flex-row md:items-center md:justify-between">
               <div>
                 <div className="flex items-center space-x-2">
-                  <span className="glass-badge bg-red-500/20 text-red-300 border-red-500/30">
-                    <span className="w-2 h-2 mr-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(239,68,68,0.8)]"></span>
+                  <span className="px-2.5 py-0.5 rounded text-xs font-bold font-mono bg-[#FDE8E8] text-[#9B1C1C] border border-[#F89999] shadow-sm">
+                    <span className="w-2 h-2 mr-1.5 inline-block bg-[#D32F2F] rounded-full animate-pulse"></span>
                     DEFCON-2 ACTIVE
                   </span>
-                  <span className="text-xs font-mono text-slate-400">| National Crime Grid Sync: 99.9%</span>
+                  <span className="text-xs font-mono text-[#526D8E]">| National Crime Grid Sync: 99.9%</span>
                 </div>
-                <h1 className="text-2xl font-bold text-white tracking-tight mt-2 drop-shadow-md">
-                  AI Crime Intelligence & Tactical Dispatch
+                <h1 className="text-xl font-black text-[#1450A0] tracking-wide mt-1">
+                  AI Crime Intelligence &amp; Tactical Dispatch
                 </h1>
               </div>
-              <div className="mt-4 md:mt-0 flex items-center space-x-3">
-                <button 
-                  onClick={() => alert("Dossier exported to local server.")} 
-                  className="glass-button-secondary px-4 py-2 text-sm"
+              <div className="mt-3 md:mt-0 flex items-center space-x-2.5">
+                <button
+                  onClick={() => alert("Dossier exported to local server.")}
+                  className="glass-button-secondary px-3.5 py-1.5 text-xs font-bold"
                 >
                   Export Dossier
                 </button>
-                <button 
+                <button
                   onClick={() => alert("Creating new tactical operation...")}
-                  className="glass-button px-4 py-2 text-sm flex items-center space-x-2"
+                  className="glass-button-green px-4 py-1.5 text-xs font-bold"
                 >
-                  <span>New Tactical Operation</span>
+                  + New Tactical Operation
                 </button>
               </div>
             </div>
 
             {/* SECTION 1: Responsive 8 KPI cards */}
             <section>
-              <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4 font-mono">
+              <h2 className="section-title mb-4">
                 Real-Time Operational Telemetry
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -246,55 +246,24 @@ export default function Dashboard() {
                   <div className="h-[360px] w-full pt-4">
                     <ResponsiveContainer width="100%" height="100%">
                       <LineChart data={crimeTrendData} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#334155" opacity={0.5} />
-                        <XAxis dataKey="month" stroke="#94a3b8" fontSize={12} tickLine={false} />
-                        <YAxis stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
+                        <CartesianGrid strokeDasharray="3 3" stroke="#C0D1E3" opacity={0.7} />
+                        <XAxis dataKey="month" stroke="#4A668C" fontSize={11} tickLine={false} />
+                        <YAxis stroke="#4A668C" fontSize={11} tickLine={false} axisLine={false} />
                         <Tooltip
                           contentStyle={{
-                            backgroundColor: '#0f172a',
-                            borderColor: '#334155',
-                            borderRadius: '0.5rem',
-                            color: '#f8fafc',
-                            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.5)',
+                            backgroundColor: '#FFFFFF',
+                            borderColor: '#99BCE0',
+                            borderRadius: '0.375rem',
+                            color: '#1450A0',
+                            boxShadow: '0 4px 12px rgba(20,80,160,0.15)',
+                            fontSize: '11px',
                           }}
                         />
-                        <Legend wrapperStyle={{ paddingTop: '10px', fontSize: '12px', color: '#cbd5e1' }} />
-                        <Line
-                          type="monotone"
-                          name="Violent Crime"
-                          dataKey="violent"
-                          stroke="#ef4444"
-                          strokeWidth={2.5}
-                          dot={{ r: 4, fill: '#ef4444' }}
-                          activeDot={{ r: 6 }}
-                        />
-                        <Line
-                          type="monotone"
-                          name="Property Crime"
-                          dataKey="property"
-                          stroke="#f97316"
-                          strokeWidth={2.5}
-                          dot={{ r: 4, fill: '#f97316' }}
-                          activeDot={{ r: 6 }}
-                        />
-                        <Line
-                          type="monotone"
-                          name="Cyber Fraud"
-                          dataKey="cyber"
-                          stroke="#3b82f6"
-                          strokeWidth={2.5}
-                          dot={{ r: 4, fill: '#3b82f6' }}
-                          activeDot={{ r: 6 }}
-                        />
-                        <Line
-                          type="monotone"
-                          name="Financial / Money Laundering"
-                          dataKey="financial"
-                          stroke="#10b981"
-                          strokeWidth={2.5}
-                          dot={{ r: 4, fill: '#10b981' }}
-                          activeDot={{ r: 6 }}
-                        />
+                        <Legend wrapperStyle={{ paddingTop: '10px', fontSize: '11px', color: '#1A3E70' }} />
+                        <Line type="monotone" name="Violent Crime" dataKey="violent" stroke="#D32F2F" strokeWidth={2.5} dot={{ r: 3, fill: '#D32F2F' }} activeDot={{ r: 5 }} />
+                        <Line type="monotone" name="Property Crime" dataKey="property" stroke="#F57C00" strokeWidth={2.5} dot={{ r: 3, fill: '#F57C00' }} activeDot={{ r: 5 }} />
+                        <Line type="monotone" name="Cyber Fraud" dataKey="cyber" stroke="#1976D2" strokeWidth={2.5} dot={{ r: 3, fill: '#1976D2' }} activeDot={{ r: 5 }} />
+                        <Line type="monotone" name="Financial" dataKey="financial" stroke="#388E3C" strokeWidth={2.5} dot={{ r: 3, fill: '#388E3C' }} activeDot={{ r: 5 }} />
                       </LineChart>
                     </ResponsiveContainer>
                   </div>
@@ -302,14 +271,14 @@ export default function Dashboard() {
               </div>
 
               {/* Right Column: AI Crime Insights using InsightCard */}
-              <div className="flex flex-col space-y-4 bg-slate-900/60 border border-slate-800/80 rounded-xl p-5">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div className="glass-card flex flex-col space-y-3 p-4">
+                <div className="flex items-center justify-between border-b border-[#C0D1E3] pb-2.5">
                   <div className="flex items-center space-x-2">
-                    <Bot className="w-5 h-5 text-blue-400" />
-                    <h3 className="font-semibold text-white">AI Crime Insights</h3>
+                    <Bot className="w-4 h-4 text-[#3E8EDE]" />
+                    <h3 className="font-bold text-[#1450A0] text-xs">AI Crime Insights</h3>
                   </div>
-                  <span className="text-xs bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded font-mono">
-                    MODEL: CRIME-BERT-v4
+                  <span className="px-2 py-0.5 rounded text-[10px] bg-[#EAF4FC] text-[#1450A0] border border-[#99BCE0] font-mono font-bold">
+                    CRIME-BERT-v4
                   </span>
                 </div>
                 <div className="space-y-3 overflow-y-auto max-h-[360px] pr-1">
@@ -335,15 +304,15 @@ export default function Dashboard() {
                   title="Live Crime Hotspot & Tactical Deployment Map"
                   subtitle="Heatmap overlays, police stations, active crime zones, and patrol vectors"
                 >
-                  <div className="relative w-full h-[420px] bg-slate-950 rounded-lg overflow-hidden border border-slate-800/80 flex items-center justify-center">
+                  <div className="relative w-full h-[420px] bg-[#F4F9FD] rounded-md overflow-hidden border border-[#B8C6D6] flex items-center justify-center">
                     {/* Simulated Map Background Grid & Topography */}
                     <div
-                      className="absolute inset-0 opacity-20"
+                      className="absolute inset-0 opacity-15"
                       style={{
                         backgroundImage:
-                          'radial-gradient(#38bdf8 1px, transparent 1px), radial-gradient(#38bdf8 1px, #020617 1px)',
-                        backgroundSize: '40px 40px',
-                        backgroundPosition: '0 0, 20px 20px',
+                          'radial-gradient(#3E8EDE 1px, transparent 1px), radial-gradient(#3E8EDE 1px, #EAF4FC 1px)',
+                        backgroundSize: '30px 30px',
+                        backgroundPosition: '0 0, 15px 15px',
                       }}
                     ></div>
 
@@ -356,26 +325,26 @@ export default function Dashboard() {
                     <div className="relative z-10 w-full h-full p-6 flex flex-col justify-between pointer-events-none">
                       {/* Top Controls Overlay */}
                       <div className="flex justify-between items-start pointer-events-auto">
-                        <div className="bg-slate-900/90 backdrop-blur border border-slate-700/80 rounded-lg p-3 space-y-2 shadow-xl">
-                          <div className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Map Layers</div>
-                          <div className="flex items-center space-x-3 text-xs text-slate-400">
+                        <div className="bg-white border border-[#B8C6D6] p-3 space-y-2 rounded-lg shadow-md">
+                          <div className="text-xs font-bold text-[#1A3459] uppercase tracking-wider font-mono">Map Layers</div>
+                          <div className="flex items-center space-x-3 text-xs text-[#526D8E]">
                             <label className="flex items-center space-x-1.5 cursor-pointer">
-                              <input type="checkbox" defaultChecked className="rounded bg-slate-800 border-slate-600 text-blue-500 focus:ring-0" />
-                              <span className="text-red-400 font-medium">Heatmap</span>
+                              <input type="checkbox" defaultChecked className="rounded border-[#B8C6D6] text-[#3E8EDE] focus:ring-0" />
+                              <span className="text-red-600 font-bold font-mono">Heatmap</span>
                             </label>
                             <label className="flex items-center space-x-1.5 cursor-pointer">
-                              <input type="checkbox" defaultChecked className="rounded bg-slate-800 border-slate-600 text-blue-500 focus:ring-0" />
-                              <span className="text-blue-400 font-medium">Police Stations (14)</span>
+                              <input type="checkbox" defaultChecked className="rounded border-[#B8C6D6] text-[#3E8EDE] focus:ring-0" />
+                              <span className="text-[#1450A0] font-bold font-mono">Police Stations (14)</span>
                             </label>
                             <label className="flex items-center space-x-1.5 cursor-pointer">
-                              <input type="checkbox" defaultChecked className="rounded bg-slate-800 border-slate-600 text-blue-500 focus:ring-0" />
-                              <span className="text-amber-400 font-medium">Crime Zones (6)</span>
+                              <input type="checkbox" defaultChecked className="rounded border-[#B8C6D6] text-[#3E8EDE] focus:ring-0" />
+                              <span className="text-amber-600 font-bold font-mono">Crime Zones (6)</span>
                             </label>
                           </div>
                         </div>
 
-                        <div className="bg-slate-900/90 backdrop-blur border border-slate-700/80 rounded-lg px-3 py-2 text-xs font-mono text-slate-300 shadow-xl flex items-center space-x-2">
-                          <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        <div className="glass-badge bg-[#10B981]/20 text-[#34D399] border-[#10B981]/40 font-mono text-xs shadow-[0_0_15px_rgba(16,185,129,0.3)] px-3 py-2">
+                          <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse mr-2"></span>
                           <span>GPS SATELLITE LOCK: 28.6139° N, 77.2090° E</span>
                         </div>
                       </div>
@@ -387,9 +356,9 @@ export default function Dashboard() {
                           <div className="w-8 h-8 rounded-full bg-blue-600/20 border-2 border-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/50 group-hover:scale-110 transition">
                             <span className="text-xs font-bold text-blue-400">PS</span>
                           </div>
-                          <div className="absolute left-10 top-0 hidden group-hover:block bg-slate-900 border border-slate-700 text-white text-xs rounded p-2 shadow-xl whitespace-nowrap z-20">
-                            <p className="font-bold">North District HQ</p>
-                            <p className="text-slate-400">Units Available: 8 / 12</p>
+                          <div className="absolute left-10 top-0 hidden group-hover:block bg-white border border-[#B8C6D6] text-[#1A2B4C] text-xs rounded p-2 shadow-xl whitespace-nowrap z-20">
+                            <p className="font-bold text-[#1A3459]">North District HQ</p>
+                            <p className="text-[#657E9E]">Units Available: 8 / 12</p>
                           </div>
                         </div>
 
@@ -398,9 +367,9 @@ export default function Dashboard() {
                           <div className="w-8 h-8 rounded-full bg-blue-600/20 border-2 border-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/50 group-hover:scale-110 transition">
                             <span className="text-xs font-bold text-blue-400">PS</span>
                           </div>
-                          <div className="absolute left-10 top-0 hidden group-hover:block bg-slate-900 border border-slate-700 text-white text-xs rounded p-2 shadow-xl whitespace-nowrap z-20">
-                            <p className="font-bold">Cyber Cell East</p>
-                            <p className="text-slate-400">Units Available: 5 / 5</p>
+                          <div className="absolute left-10 top-0 hidden group-hover:block bg-white border border-[#B8C6D6] text-[#1A2B4C] text-xs rounded p-2 shadow-xl whitespace-nowrap z-20">
+                            <p className="font-bold text-[#1A3459]">Cyber Cell East</p>
+                            <p className="text-[#657E9E]">Units Available: 5 / 5</p>
                           </div>
                         </div>
 
@@ -409,10 +378,10 @@ export default function Dashboard() {
                           <div className="w-8 h-8 rounded-full bg-red-600/30 border-2 border-red-500 flex items-center justify-center shadow-lg shadow-red-500/50 animate-bounce">
                             <ShieldAlert className="w-4 h-4 text-red-400" />
                           </div>
-                          <div className="absolute left-10 top-0 hidden group-hover:block bg-slate-900 border border-red-500/50 text-white text-xs rounded p-2 shadow-xl whitespace-nowrap z-20">
-                            <p className="font-bold text-red-400">CRIME ZONE: Sector 4</p>
-                            <p className="text-slate-300">High frequency vehicle theft & gang activity</p>
-                            <p className="text-xs text-slate-400 mt-1">Status: 2 Patrols En Route</p>
+                          <div className="absolute left-10 top-0 hidden group-hover:block bg-white border border-red-200 text-[#1A2B4C] text-xs rounded p-2 shadow-xl whitespace-nowrap z-20">
+                            <p className="font-bold text-red-600">CRIME ZONE: Sector 4</p>
+                            <p className="text-[#526D8E]">High frequency vehicle theft &amp; gang activity</p>
+                            <p className="text-xs text-[#657E9E] mt-1">Status: 2 Patrols En Route</p>
                           </div>
                         </div>
 
@@ -421,30 +390,30 @@ export default function Dashboard() {
                           <div className="w-8 h-8 rounded-full bg-amber-600/30 border-2 border-amber-500 flex items-center justify-center shadow-lg shadow-amber-500/50">
                             <span className="text-xs font-bold text-amber-400">!</span>
                           </div>
-                          <div className="absolute left-10 top-0 hidden group-hover:block bg-slate-900 border border-amber-500/50 text-white text-xs rounded p-2 shadow-xl whitespace-nowrap z-20">
-                            <p className="font-bold text-amber-400">CRIME ZONE: Transit Hub</p>
-                            <p className="text-slate-300">Snatching hotspot predicted</p>
+                          <div className="absolute left-10 top-0 hidden group-hover:block bg-white border border-amber-200 text-[#1A2B4C] text-xs rounded p-2 shadow-xl whitespace-nowrap z-20">
+                            <p className="font-bold text-amber-600">CRIME ZONE: Transit Hub</p>
+                            <p className="text-[#526D8E]">Snatching hotspot predicted</p>
                           </div>
                         </div>
                       </div>
 
                       {/* Bottom Legend Overlay */}
                       <div className="flex justify-between items-end pointer-events-auto">
-                        <div className="bg-slate-900/90 backdrop-blur border border-slate-700/80 rounded px-3 py-1.5 text-xs text-slate-400 flex items-center space-x-4 shadow-xl">
+                        <div className="bg-white border border-[#B8C6D6] rounded px-3 py-1.5 text-xs text-[#526D8E] flex items-center space-x-4 shadow-md">
                           <div className="flex items-center space-x-1">
-                            <span className="w-3 h-3 rounded-full bg-red-500/50 border border-red-500"></span>
+                            <span className="w-3 h-3 rounded-full bg-red-100 border border-red-500"></span>
                             <span>High Intensity Zone</span>
                           </div>
                           <div className="flex items-center space-x-1">
-                            <span className="w-3 h-3 rounded-full bg-amber-500/50 border border-amber-500"></span>
+                            <span className="w-3 h-3 rounded-full bg-amber-100 border border-amber-500"></span>
                             <span>Medium Risk</span>
                           </div>
                           <div className="flex items-center space-x-1">
-                            <span className="w-3 h-3 rounded-full bg-blue-500/50 border border-blue-500"></span>
+                            <span className="w-3 h-3 rounded-full bg-blue-100 border border-blue-500"></span>
                             <span>Police Outpost</span>
                           </div>
                         </div>
-                        <button className="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 text-xs px-3 py-1.5 rounded transition shadow-lg">
+                        <button className="glass-button-secondary text-xs px-3 py-1.5">
                           Center Map
                         </button>
                       </div>
@@ -454,13 +423,13 @@ export default function Dashboard() {
               </div>
 
               {/* Right Column: Live Alerts using AlertCard */}
-              <div className="flex flex-col space-y-4 bg-slate-900/60 border border-slate-800/80 rounded-xl p-5">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div className="glass-card flex flex-col space-y-3 p-4">
+                <div className="flex items-center justify-between border-b border-[#C0D1E3] pb-2.5">
                   <div className="flex items-center space-x-2">
-                    <span className="w-2.5 h-2.5 bg-red-500 rounded-full animate-ping"></span>
-                    <h3 className="font-semibold text-white">Live Emergency Alerts</h3>
+                    <span className="w-2.5 h-2.5 bg-[#D32F2F] rounded-full animate-ping"></span>
+                    <h3 className="font-bold text-[#1450A0] text-xs">Live Emergency Alerts</h3>
                   </div>
-                  <span className="text-xs text-slate-400 font-mono">PRIORITY QUEUE</span>
+                  <span className="px-2 py-0.5 rounded text-[10px] bg-[#FDE8E8] text-[#9B1C1C] border border-[#F89999] font-mono font-bold">PRIORITY QUEUE</span>
                 </div>
                 <div className="space-y-3 overflow-y-auto max-h-[420px] pr-1">
                   {liveAlerts.map((alert) => (
@@ -489,38 +458,38 @@ export default function Dashboard() {
                   <div className="overflow-x-auto mt-3">
                     <table className="w-full text-left border-collapse text-sm">
                       <thead>
-                        <tr className="border-b border-slate-800 text-slate-400 font-mono text-xs uppercase bg-slate-900/50">
-                          <th className="py-3 px-4 font-semibold">FIR #</th>
-                          <th className="py-3 px-4 font-semibold">Crime Classification</th>
-                          <th className="py-3 px-4 font-semibold">District</th>
-                          <th className="py-3 px-4 font-semibold">Investigating Officer</th>
-                          <th className="py-3 px-4 font-semibold">Status</th>
-                          <th className="py-3 px-4 font-semibold">Date Registered</th>
+                        <tr className="border-b border-[#B8C6D6] text-[#1450A0] font-sans text-xs uppercase font-bold bg-[#EBF3FB]">
+                          <th className="py-2.5 px-3">FIR #</th>
+                          <th className="py-2.5 px-3">Crime Classification</th>
+                          <th className="py-2.5 px-3">District</th>
+                          <th className="py-2.5 px-3">Investigating Officer</th>
+                          <th className="py-2.5 px-3">Status</th>
+                          <th className="py-2.5 px-3">Date Registered</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-800/60 text-slate-300 font-sans">
+                      <tbody className="divide-y divide-[#D5E2F0] text-[#2C4466] font-sans text-xs">
                         {recentFIRs.map((row, idx) => (
-                          <tr key={idx} className="hover:bg-slate-800/40 transition-colors cursor-pointer" onClick={() => alert(`Details for ${row.fir} loaded in investigative board.`)}>
-                            <td className="py-3.5 px-4 font-mono font-medium text-blue-400">{row.fir}</td>
-                            <td className="py-3.5 px-4 font-medium text-white">{row.crime}</td>
-                            <td className="py-3.5 px-4 text-slate-400">{row.district}</td>
-                            <td className="py-3.5 px-4 text-slate-300">{row.officer}</td>
-                            <td className="py-3.5 px-4">
+                          <tr key={idx} className="hover:bg-[#EBF4FC] transition-colors cursor-pointer" onClick={() => alert(`Details for ${row.fir} loaded in investigative board.`)}>
+                            <td className="py-2.5 px-3 font-mono font-bold text-[#1450A0]">{row.fir}</td>
+                            <td className="py-2.5 px-3 font-semibold text-[#1A2B4C]">{row.crime}</td>
+                            <td className="py-2.5 px-3 text-[#3B5478]">{row.district}</td>
+                            <td className="py-2.5 px-3 text-[#3B5478]">{row.officer}</td>
+                            <td className="py-2.5 px-3">
                               <span
-                                className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium border ${
+                                className={`inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold border ${
                                   row.status === 'Active Investigation'
-                                    ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                                    ? 'bg-[#FFF8E1] text-[#B76E00] border-[#FFE082]'
                                     : row.status === 'Charge Sheet Filed'
-                                    ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+                                    ? 'bg-[#EBF7E6] text-[#2B6317] border-[#81C765]'
                                     : row.status === 'Suspect Identified'
-                                    ? 'bg-purple-500/10 text-purple-400 border-purple-500/20'
-                                    : 'bg-blue-500/10 text-blue-400 border-blue-500/20'
+                                    ? 'bg-[#F3E5F5] text-[#7B1FA2] border-[#CE93D8]'
+                                    : 'bg-[#EAF4FC] text-[#1450A0] border-[#99BCE0]'
                                 }`}
                               >
                                 {row.status}
                               </span>
                             </td>
-                            <td className="py-3.5 px-4 text-slate-400 font-mono text-xs">{row.date}</td>
+                            <td className="py-2.5 px-3 text-[#526D8E] font-mono text-xs">{row.date}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -530,13 +499,13 @@ export default function Dashboard() {
               </div>
 
               {/* Right Column: Investigation Timeline */}
-              <div className="flex flex-col bg-slate-900/60 border border-slate-800/80 rounded-xl p-5">
-                <div className="border-b border-slate-800 pb-3 mb-4">
-                  <h3 className="font-semibold text-white">Investigation Timeline</h3>
-                  <p className="text-xs text-slate-400 mt-0.5">Active Case Progression: FIR-2026-8891</p>
+              <div className="glass-card flex flex-col p-4">
+                <div className="border-b border-[#C0D1E3] pb-2.5 mb-3">
+                  <h3 className="font-bold text-[#1450A0] text-xs">Investigation Timeline</h3>
+                  <p className="text-xs text-[#526D8E] mt-0.5 font-mono">Active Case Progression: FIR-2026-8891</p>
                 </div>
 
-                <div className="relative pl-6 space-y-6 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-800 overflow-y-auto max-h-[400px] pr-2">
+                <div className="relative pl-6 space-y-5 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-[#B8C6D6] overflow-y-auto max-h-[380px] pr-2">
                   {timelineSteps.map((step, idx) => {
                     const isCompleted = step.status === 'completed';
                     const isActive = step.status === 'active';
@@ -545,20 +514,20 @@ export default function Dashboard() {
                       <div key={idx} className="relative group">
                         {/* Timeline Node Indicator */}
                         <div
-                          className={`absolute -left-6 top-1 w-5 h-5 rounded-full flex items-center justify-center border-2 bg-slate-950 ${
+                          className={`absolute -left-6 top-1 w-5 h-5 rounded-full flex items-center justify-center border-2 bg-white ${
                             isCompleted
-                              ? 'border-emerald-500 text-emerald-400'
+                              ? 'border-[#388E3C] text-[#388E3C]'
                               : isActive
-                              ? 'border-blue-500 text-blue-400 animate-pulse'
-                              : 'border-slate-700 text-slate-600'
+                              ? 'border-[#1976D2] text-[#1976D2] animate-pulse'
+                              : 'border-[#A0B2C6] text-slate-400'
                           }`}
                         >
                           {isCompleted ? (
-                            <CheckCircle2 className="w-3 h-3 fill-emerald-500/20" />
+                            <CheckCircle2 className="w-3 h-3 text-[#388E3C]" />
                           ) : isActive ? (
-                            <Clock className="w-3 h-3" />
+                            <Clock className="w-3 h-3 text-[#1976D2]" />
                           ) : (
-                            <span className="w-1.5 h-1.5 rounded-full bg-slate-700"></span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#B0C2D6]"></span>
                           )}
                         </div>
 
@@ -566,15 +535,15 @@ export default function Dashboard() {
                         <div className="flex flex-col">
                           <div className="flex items-center justify-between">
                             <span
-                              className={`text-sm font-semibold ${
-                                isCompleted ? 'text-slate-200' : isActive ? 'text-blue-400 font-bold' : 'text-slate-500'
+                              className={`text-xs font-bold ${
+                                isCompleted ? 'text-[#1A2B4C]' : isActive ? 'text-[#1450A0]' : 'text-slate-500'
                               }`}
                             >
                               {step.stage}
                             </span>
                             <span className="text-[11px] font-mono text-slate-500">{step.date}</span>
                           </div>
-                          <p className={`text-xs mt-1 leading-relaxed ${isActive ? 'text-slate-300' : 'text-slate-400'}`}>
+                          <p className={`text-xs mt-1 leading-relaxed ${isActive ? 'text-[#1A2B4C]' : 'text-[#526D8E]'}`}>
                             {step.detail}
                           </p>
                         </div>
@@ -586,25 +555,25 @@ export default function Dashboard() {
             </section>
 
             {/* SECTION 5: Criminal Network Preview (Small React Flow graph) */}
-            <section className="bg-slate-900/60 border border-slate-800/80 rounded-xl p-6">
-              <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-4 mb-4 gap-4">
+            <section className="glass-card p-4">
+              <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-[#C0D1E3] pb-3 mb-3 gap-3">
                 <div>
                   <div className="flex items-center space-x-2">
-                    <Network className="w-5 h-5 text-purple-400" />
-                    <h3 className="font-semibold text-white text-lg">Criminal Network Preview</h3>
+                    <Network className="w-4 h-4 text-[#1450A0]" />
+                    <h3 className="font-bold text-[#1450A0] text-xs">Criminal Network Preview</h3>
                   </div>
-                  <p className="text-xs text-slate-400 mt-1">
-                    Entity linkage graph: Accused, Victims, Associated Vehicles, Phones, Financial Shells, and Evidence
+                  <p className="text-xs text-[#526D8E] mt-0.5 font-mono">
+                    Syndicate-B linkage: Accused · Victims · Vehicles · Phones · Financial Shells · Evidence
                   </p>
                 </div>
-                <button onClick={() => alert("Opening full graphic analysis interface...")} className="inline-flex items-center space-x-2 px-4 py-2.5 bg-purple-600 hover:bg-purple-500 text-white text-sm font-medium rounded-lg transition shadow-lg shadow-purple-600/20 whitespace-nowrap">
+                <button onClick={() => alert("Opening full graphic analysis interface...")} className="glass-button inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-bold whitespace-nowrap">
                   <span>Open Network Analysis</span>
-                  <ExternalLink className="w-4 h-4" />
+                  <ExternalLink className="w-3.5 h-3.5" />
                 </button>
               </div>
 
               {/* Small React Flow Graph Container */}
-              <div className="w-full h-[380px] bg-slate-950 border border-slate-800/80 rounded-lg overflow-hidden relative">
+              <div className="w-full h-[360px] bg-[#FAFDFE] border border-[#B8C6D6] rounded-md overflow-hidden relative">
                 <ReactFlow
                   nodes={nodes}
                   edges={edges}
@@ -612,11 +581,11 @@ export default function Dashboard() {
                   attributionPosition="bottom-right"
                   proOptions={{ hideAttribution: true }}
                 >
-                  <Background color="#334155" gap={20} size={1} />
-                  <Controls className="bg-slate-900 border-slate-700 fill-slate-300" />
+                  <Background color="#C0D1E3" gap={24} size={1} />
+                  <Controls className="bg-white border-[#B8C6D6] fill-[#1450A0]" />
                 </ReactFlow>
-                <div className="absolute top-3 left-3 bg-slate-900/90 border border-slate-800 px-3 py-1.5 rounded text-xs text-slate-400 font-mono pointer-events-none z-10 font-mono">
-                  GRAPH ID: SYNDICATE-B-LINKAGE | NODES: 7 | EDGES: 8
+                <div className="absolute top-2.5 left-2.5 bg-[#EAF4FC] border border-[#99BCE0] px-2.5 py-1 rounded text-xs text-[#1450A0] font-mono font-bold pointer-events-none z-10">
+                  GRAPH: SYNDICATE-B · 7 NODES · 8 EDGES
                 </div>
               </div>
             </section>
@@ -625,14 +594,14 @@ export default function Dashboard() {
 
         {/* FLOATING BUTTON: Ask Crime AI (Bottom Right) */}
         <div className="fixed bottom-6 right-6 z-50">
-          <button 
+          <button
             onClick={() => setIsChatOpen(true)}
-            className="flex items-center space-x-3 px-5 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold rounded-full shadow-2xl shadow-blue-500/30 border border-blue-400/30 transition transform hover:-translate-y-0.5 active:translate-y-0 group"
+            className="flex items-center space-x-2.5 px-4 py-2.5 glass-button shadow-xl group text-xs font-bold uppercase tracking-wide"
           >
-            <Bot className="w-6 h-6 text-blue-200 group-hover:rotate-12 transition-transform" />
-            <span className="tracking-wide font-semibold">Ask Crime AI</span>
+            <Bot className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+            <span>Ask Crime AI</span>
             <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-300 opacity-75"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
             </span>
           </button>
@@ -640,37 +609,33 @@ export default function Dashboard() {
 
         {/* Tactical Dispatch Toast Notification */}
         {dispatchToast && (
-          <div className="fixed bottom-24 right-6 z-50 bg-slate-900 border-2 border-blue-500 text-white rounded-lg px-5 py-3.5 shadow-2xl flex items-center space-x-3 animate-bounce">
-            <span className="text-xl">🚀</span>
-            <span className="text-xs font-medium font-mono tracking-tight">{dispatchToast}</span>
+          <div className="fixed bottom-24 right-6 z-50 bg-white border-2 border-[#3E8EDE] text-[#1A3459] rounded-xl px-5 py-3.5 shadow-2xl flex items-center space-x-3">
+            <span className="text-lg">🚀</span>
+            <span className="text-xs font-semibold font-mono tracking-tight text-[#1450A0]">{dispatchToast}</span>
           </div>
         )}
 
         {/* Chat Interface Drawer */}
         {isChatOpen && (
           <div className="fixed inset-0 z-50 flex justify-end">
-            {/* Backdrop */}
             <div
-              className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm transition-opacity"
+              className="absolute inset-0 bg-[#142B4C]/40 backdrop-blur-xs"
               onClick={() => setIsChatOpen(false)}
             ></div>
-
-            {/* Drawer Panel */}
-            <div className="relative w-full max-w-lg bg-slate-900 border-l border-slate-800 flex flex-col h-full shadow-2xl">
-              <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-950/40">
+            <div className="relative w-full max-w-lg bg-white border-l border-[#99BCE0] flex flex-col h-full shadow-2xl">
+              <div className="flex items-center justify-between px-4 py-3 glass-header">
                 <div className="flex items-center space-x-2">
-                  <Bot className="w-5 h-5 text-blue-400" />
-                  <h3 className="font-bold text-white text-base">Crime Intelligence Assistant</h3>
+                  <Bot className="w-4 h-4 text-white" />
+                  <h3 className="font-bold text-white text-xs">Crime Intelligence Assistant</h3>
                 </div>
                 <button
                   onClick={() => setIsChatOpen(false)}
-                  className="text-slate-400 hover:text-white transition p-1 hover:bg-slate-800 rounded"
+                  className="glass-button-secondary p-1 text-[#1450A0] rounded"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-4 h-4" />
                 </button>
               </div>
-
-              <div className="flex-1 overflow-hidden p-6 bg-slate-950 flex flex-col">
+              <div className="flex-1 overflow-hidden p-4 bg-[#F2F7FC] flex flex-col">
                 <ChatInterface />
               </div>
             </div>

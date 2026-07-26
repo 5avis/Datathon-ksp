@@ -44,16 +44,16 @@ const bankAccounts = [
 ];
 
 const riskBadge: Record<string, string> = {
-  Critical: 'bg-red-500/10 text-red-400 border-red-500/20',
-  High: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
-  Medium: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+  Critical: 'bg-red-50 text-red-600 border-red-200',
+  High: 'bg-orange-50 text-orange-600 border-orange-200',
+  Medium: 'bg-amber-50 text-amber-600 border-amber-200',
 };
 
 const statusBadge: Record<string, string> = {
-  Flagged: 'bg-red-500/10 text-red-400 border-red-500/20',
-  'Under Review': 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-  Monitoring: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-  Frozen: 'bg-red-600/20 text-red-300 border-red-600/20',
+  Flagged: 'bg-red-50 text-red-600 border-red-200',
+  'Under Review': 'bg-amber-50 text-amber-600 border-amber-200',
+  Monitoring: 'bg-blue-50 text-[#1450A0] border-blue-200',
+  Frozen: 'bg-red-100 text-red-700 border-red-300',
 };
 
 export default function FinancialPage() {
@@ -69,18 +69,18 @@ export default function FinancialPage() {
 
   return (
     <AppLayout>
-      <div className="flex h-screen bg-slate-950 text-slate-100 font-sans antialiased overflow-hidden">
+      <div className="flex h-screen bg-[#EAF4FC] text-[#1F3250] font-sans antialiased overflow-hidden">
         <Sidebar />
         <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
           <TopNavbar />
           <main className="flex-1 p-6 space-y-6 max-w-7xl mx-auto w-full">
             {/* Header */}
-            <div className="border-b border-slate-800 pb-5">
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-950 text-emerald-400 border border-emerald-700/50 mb-1">
-                <span className="w-1.5 h-1.5 mr-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+            <div className="border-b border-[#C0D1E3] pb-5">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-bold bg-[#E8F5E9] text-[#2E7D32] border border-[#A5D6A7] mb-1">
+                <span className="w-1.5 h-1.5 mr-1.5 bg-[#4CAF50] rounded-full animate-pulse"></span>
                 FINANCIAL INTELLIGENCE UNIT
               </span>
-              <h1 className="text-2xl font-bold text-white tracking-tight">Financial Crime & Money Laundering Tracker</h1>
+              <h1 className="text-2xl font-bold text-[#1A3459] tracking-tight">Financial Crime &amp; Money Laundering Tracker</h1>
             </div>
 
             {/* KPIs */}
@@ -106,16 +106,16 @@ export default function FinancialPage() {
             {/* Tabs: Transactions / Shells / Accounts */}
             <div className="panel-surface space-y-4 p-5">
               <div className="flex items-center justify-between flex-wrap gap-3">
-                <div className="flex border-b border-slate-800 w-full">
+                <div className="flex border-b border-[#C0D1E3] w-full">
                   {(['transactions', 'shells', 'accounts'] as const).map(tab => (
-                    <button key={tab} onClick={() => setActiveTab(tab)} className={`px-4 py-2.5 text-xs font-semibold capitalize border-b-2 transition ${activeTab === tab ? 'border-emerald-500 text-emerald-400' : 'border-transparent text-slate-500 hover:text-slate-300'}`}>
+                    <button key={tab} onClick={() => setActiveTab(tab)} className={`px-4 py-2.5 text-xs font-semibold capitalize border-b-2 transition ${activeTab === tab ? 'border-[#3E8EDE] text-[#1450A0]' : 'border-transparent text-[#657E9E] hover:text-[#2C4466]'}`}>
                       {tab === 'shells' ? 'Shell Companies' : tab === 'accounts' ? 'Bank Accounts' : 'Suspicious Transactions'}
                     </button>
                   ))}
                   <div className="flex-1 flex justify-end items-center pb-1">
                     <div className="relative">
-                      <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3 h-3 text-slate-500" />
-                      <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search..." className="bg-slate-950 border border-slate-800 rounded pl-7 pr-3 py-1.5 text-[11px] text-slate-200 focus:outline-none focus:ring-1 focus:ring-emerald-500 w-36" />
+                      <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3 h-3 text-[#657E9E]" />
+                      <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search..." className="glass-input pl-7 pr-3 py-1.5 w-36" />
                     </div>
                   </div>
                 </div>
@@ -125,7 +125,7 @@ export default function FinancialPage() {
                   <div className="w-full overflow-x-auto">
                     <table className="w-full text-left text-xs">
                       <thead>
-                        <tr className="border-b border-slate-800 text-slate-500 font-mono uppercase text-[10px]">
+                        <tr className="border-b border-[#C0D1E3] text-[#657E9E] font-mono uppercase text-[10px]">
                           <th className="py-2 px-3">TXN ID</th>
                           <th className="py-2 px-3">Amount</th>
                           <th className="py-2 px-3">From</th>
@@ -136,15 +136,15 @@ export default function FinancialPage() {
                           <th className="py-2 px-3">Risk</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-800/50">
+                      <tbody className="divide-y divide-[#E0E9F3]">
                         {filteredTxns.map(t => (
-                          <tr key={t.id} className="hover:bg-slate-800/30 transition cursor-pointer">
-                            <td className="py-3 px-3 font-mono text-emerald-400 font-bold">{t.id}</td>
-                            <td className="py-3 px-3 font-semibold text-white">{t.amount}</td>
-                            <td className="py-3 px-3 text-slate-400 max-w-[120px] truncate">{t.from}</td>
+                          <tr key={t.id} className="hover:bg-[#EAF4FC] transition cursor-pointer">
+                            <td className="py-3 px-3 font-mono text-[#2E7D32] font-bold">{t.id}</td>
+                            <td className="py-3 px-3 font-semibold text-[#1A3459]">{t.amount}</td>
+                            <td className="py-3 px-3 text-[#526D8E] max-w-[120px] truncate">{t.from}</td>
                             <td className="py-3 px-1"><ArrowRight className="w-3 h-3 text-slate-600" /></td>
-                            <td className="py-3 px-3 text-slate-400 max-w-[120px] truncate">{t.to}</td>
-                            <td className="py-3 px-3 text-slate-500 font-mono text-[10px]">{t.date}</td>
+                            <td className="py-3 px-3 text-[#526D8E] max-w-[120px] truncate">{t.to}</td>
+                            <td className="py-3 px-3 text-[#657E9E] font-mono text-[10px]">{t.date}</td>
                             <td className="py-3 px-3"><span className={`text-[10px] font-mono px-1.5 py-0.5 rounded border ${statusBadge[t.status]}`}>{t.status}</span></td>
                             <td className="py-3 px-3"><span className={`text-[10px] font-mono px-1.5 py-0.5 rounded border ${riskBadge[t.risk]}`}>{t.risk}</span></td>
                           </tr>
@@ -158,15 +158,15 @@ export default function FinancialPage() {
                 {activeTab === 'shells' && (
                   <div className="w-full space-y-3">
                     {shellCompanies.map(s => (
-                      <div key={s.regNo} className="p-4 bg-slate-950/60 border border-slate-800 rounded-lg hover:border-slate-700 transition">
+                      <div key={s.regNo} className="p-4 bg-white border border-[#C0D1E3] rounded-lg hover:border-[#3E8EDE] transition">
                         <div className="flex items-start justify-between gap-3">
                           <div className="flex items-start space-x-3">
-                            <Building2 className="w-4 h-4 text-slate-500 mt-0.5 shrink-0" />
+                            <Building2 className="w-4 h-4 text-[#657E9E] mt-0.5 shrink-0" />
                             <div>
-                              <p className="text-xs font-bold text-white">{s.name}</p>
-                              <p className="text-[11px] text-slate-500 font-mono mt-0.5">CIN: {s.regNo}</p>
-                              <p className="text-[11px] text-slate-400 mt-1">Director: {s.director}</p>
-                              <p className="text-[11px] text-blue-400 mt-0.5">Links: {s.links}</p>
+                              <p className="text-xs font-bold text-[#1A3459]">{s.name}</p>
+                              <p className="text-[11px] text-[#657E9E] font-mono mt-0.5">CIN: {s.regNo}</p>
+                              <p className="text-[11px] text-[#526D8E] mt-1">Director: {s.director}</p>
+                              <p className="text-[11px] text-[#1450A0] mt-0.5">Links: {s.links}</p>
                             </div>
                           </div>
                           <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded border shrink-0 ${riskBadge[s.risk]}`}>{s.risk}</span>
@@ -180,17 +180,17 @@ export default function FinancialPage() {
                 {activeTab === 'accounts' && (
                   <div className="w-full space-y-3">
                     {bankAccounts.map(a => (
-                      <div key={a.account} className="p-4 bg-slate-950/60 border border-slate-800 rounded-lg hover:border-slate-700 transition flex items-center justify-between">
+                      <div key={a.account} className="p-4 bg-white border border-[#C0D1E3] rounded-lg hover:border-[#3E8EDE] transition flex items-center justify-between">
                         <div className="flex items-center space-x-3">
-                          <CreditCard className="w-4 h-4 text-slate-500 shrink-0" />
+                          <CreditCard className="w-4 h-4 text-[#657E9E] shrink-0" />
                           <div>
-                            <p className="text-xs font-bold text-white font-mono">{a.account}</p>
-                            <p className="text-[11px] text-slate-400">{a.bank} · {a.type}</p>
-                            <p className="text-[11px] text-slate-500 mt-0.5">Linked to: {a.linked}</p>
+                            <p className="text-xs font-bold text-[#1A3459] font-mono">{a.account}</p>
+                            <p className="text-[11px] text-[#526D8E]">{a.bank} · {a.type}</p>
+                            <p className="text-[11px] text-[#657E9E] mt-0.5">Linked to: {a.linked}</p>
                           </div>
                         </div>
                         <div className="text-right space-y-1">
-                          <p className="text-xs font-semibold text-white">{a.balance}</p>
+                          <p className="text-xs font-semibold text-[#1A3459]">{a.balance}</p>
                           <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded border ${statusBadge[a.status]}`}>{a.status}</span>
                         </div>
                       </div>
@@ -204,19 +204,19 @@ export default function FinancialPage() {
 
         {/* FAB */}
         <div className="fixed bottom-6 right-6 z-50">
-          <button onClick={() => setIsChatOpen(true)} className="flex items-center space-x-2.5 px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold rounded-full shadow-2xl border border-blue-400/30 transition transform hover:-translate-y-0.5 text-sm">
-            <Bot className="w-5 h-5 text-blue-200" /><span>Ask Crime AI</span>
+          <button onClick={() => setIsChatOpen(true)} className="glass-button flex items-center space-x-2.5 px-5 py-3 rounded-full shadow-2xl text-sm">
+            <Bot className="w-5 h-5" /><span>Ask Crime AI</span>
           </button>
         </div>
         {isChatOpen && (
           <div className="fixed inset-0 z-50 flex justify-end">
-            <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" onClick={() => setIsChatOpen(false)}></div>
-            <div className="relative w-full max-w-lg bg-slate-900 border-l border-slate-800 flex flex-col h-full shadow-2xl">
-              <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800">
-                <div className="flex items-center space-x-2"><Bot className="w-5 h-5 text-blue-400" /><h3 className="font-bold text-white text-sm">Crime Intelligence Assistant</h3></div>
-                <button onClick={() => setIsChatOpen(false)} className="text-slate-400 hover:text-white p-1 hover:bg-slate-800 rounded"><X className="w-4 h-4" /></button>
+            <div className="absolute inset-0 bg-[#1A3459]/20 backdrop-blur-sm" onClick={() => setIsChatOpen(false)}></div>
+            <div className="relative w-full max-w-lg bg-white border-l border-[#C0D1E3] flex flex-col h-full shadow-2xl">
+              <div className="glass-header flex items-center justify-between px-6 py-4">
+                <div className="flex items-center space-x-2"><Bot className="w-5 h-5 text-white" /><h3 className="font-bold text-white text-sm">Crime Intelligence Assistant</h3></div>
+                <button onClick={() => setIsChatOpen(false)} className="text-white/80 hover:text-white p-1 rounded"><X className="w-4 h-4" /></button>
               </div>
-              <div className="flex-1 overflow-hidden p-4 bg-slate-950"><ChatInterface /></div>
+              <div className="flex-1 overflow-hidden p-4 bg-[#EAF4FC]"><ChatInterface /></div>
             </div>
           </div>
         )}

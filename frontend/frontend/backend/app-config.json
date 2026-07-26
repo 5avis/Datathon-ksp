@@ -1,0 +1,17 @@
+{
+  "command": "uvicorn main:app --host 0.0.0.0 --port 9000",
+  "build_path": ".",
+  "stack": "python_3_11",
+  "env_variables": {
+    "TRUSTED_ORIGINS":"https://datathon-ksp-uzaytijh.onslate.in",
+    "CATALYST_PROJECT_ID": "45680000000016001",
+    "CATALYST_AUTH_TOKEN": "",
+    "QUICKML_ORG_ID": "60078554986",
+    "QUICKML_AUTH_TOKEN": "",
+    "POSTGRES_URL": "",
+    "NEO4J_URI": "",
+    "QDRANT_URL": ""
+  },
+  "memory": 256,
+  "scripts": {}
+}

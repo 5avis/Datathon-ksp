@@ -1,0 +1,13 @@
+GravityOffenceID,LookupValue
+1,Heinous
+2,Non-Heinous
+3,Grave Crime
+4,Special Grave Crime
+5,Capital Offence (Life / Death Penalty)
+6,Cognizable & Non-Bailable
+7,Cognizable & Bailable
+8,Non-Cognizable Offence
+9,Medium Offence
+10,Minor Infraction
+11,Petty Offence
+12,Compoundable Offence

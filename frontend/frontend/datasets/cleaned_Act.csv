@@ -1,0 +1,41 @@
+ActCode,ActDescription,ShortName,Active
+BNS_2023,Bharatiya Nyaya Sanhita 2023,BNS,1
+IPC_1860,Indian Penal Code 1860,IPC,1
+BNSS_2023,Bharatiya Nagarik Suraksha Sanhita 2023,BNSS,1
+CRPC_1973,Code of Criminal Procedure 1973,CrPC,1
+IT_ACT_2000,Information Technology Act 2000,IT-ACT,1
+NDPS_1985,Narcotic Drugs and Psychotropic Substances Act 1985,NDPS,1
+POCSO_2012,Protection of Children from Sexual Offences Act 2012,POCSO,1
+ARMS_ACT_1959,Arms Act 1959,ARMS,1
+PMLA_2002,Prevention of Money Laundering Act 2002,PMLA,1
+UAPA_1967,Unlawful Activities Prevention Act 1967,UAPA,1
+MOTOR_VEHICLE_1988,Motor Vehicles Act 1988,MVA,1
+KGS_ACT_1963,Karnataka Gaming & Betting Act 1963,KGA,1
+KP_ACT_1963,Karnataka Police Act 1963,KPA,1
+COFEPOSA_1974,Conservation of Foreign Exchange Act 1974,COFEPOSA,1
+EXPLOSIVES_ACT_1884,Explosive Substances Act 1884,EXPLOSIVES,1
+SCST_POA_1989,SC and ST (Prevention of Atrocities) Act 1989,POA,1
+PC_ACT_1988,Prevention of Corruption Act 1988,PCA,1
+NI_ACT_1881,Negotiable Instruments Act 1881 (Cheque Bounce),NIA,1
+EXCISE_ACT_1965,Karnataka Excise Act 1965,EXCISE,1
+ITPA_1956,Immoral Traffic (Prevention) Act 1956,ITPA,1
+JJ_ACT_2015,Juvenile Justice (Care & Protection of Children) Act 2015,JJA,1
+COTPA_2003,Cigarettes and Other Tobacco Products Act 2003,COTPA,1
+PASSPORT_ACT_1967,Passports Act 1967,PASSPORT,1
+COPYRIGHT_ACT_1957,Copyright and Piracy Act 1957,COPYRIGHT,1
+FOREIGNERS_ACT_1946,Foreigners Act 1946,FOREIGNERS,1
+CUSTOMS_ACT_1962,Customs Act 1962 (Smuggling & Contraband),CUSTOMS,1
+MINES_MINERALS_1957,Mines and Minerals (Development and Regulation) Act 1957,MMDR,1
+WILDLIFE_ACT_1972,Wildlife Protection Act 1972,WILDLIFE,1
+FOREST_ACT_1927,Indian Forest Act 1927,FOREST,1
+RAILWAY_ACT_1989,Railways Act 1989,RAILWAY,1
+ESSENTIAL_COMM_1955,Essential Commodities Act 1955,ECA,1
+DPDP_ACT_2023,Digital Personal Data Protection Act 2023,DPDP,1
+TELECOM_ACT_2023,Telecommunications Act 2023 (Cyber / SIM Fraud),TELECOM,1
+DISASTER_MGMT_2005,Disaster Management Act 2005,DMA,1
+FOOD_SAFETY_2006,Food Safety and Standards Act 2006 (Adulteration),FSSA,1
+ELECTRICITY_2003,Electricity Act 2003 (Power Theft & Vandalism),ELECTRICITY,1
+EPF_ACT_1952,Employees Provident Funds & Misc Provisions Act 1952,EPFA,1
+TRADE_MARKS_1999,Trade Marks Act 1999 (Counterfeiting & Fraud),TMA,1
+CYBER_FINANCIAL_SYN,Cyber Financial Fraud Special Regulation,CYBER-SYN,1
+SPECIAL_LAW_SYN,Synthetic Special & Local Law Reference,SPECIAL-SYN,1

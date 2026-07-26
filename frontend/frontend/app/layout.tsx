@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* This forces the whole background to be dark */}
-      <body className="bg-slate-950 text-white min-h-screen">
+      <body className="bg-[#EAF4FC] text-[#1F3250] min-h-screen">
         {children}
       </body>
     </html>

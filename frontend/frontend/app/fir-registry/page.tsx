@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Search, Filter, Bot, ExternalLink, ShieldAlert, CheckCircle, FileText, Download } from 'lucide-react';
+import { Search, Filter, Bot, ExternalLink, ShieldAlert, CheckCircle, FileText, Download, X } from 'lucide-react';
 import AppLayout from '../components/AppLayout';
 import Sidebar from '../components/Sidebar';
 import TopNavbar from '../components/TopNavbar';
@@ -42,33 +42,33 @@ export default function FirRegistryPage() {
 
   return (
     <AppLayout>
-      <div className="flex h-screen bg-slate-950 text-slate-100 font-sans antialiased overflow-hidden">
+      <div className="flex h-screen bg-[#EAF4FC] text-[#1F3250] font-sans antialiased overflow-hidden">
         <Sidebar />
 
         <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
           <TopNavbar />
 
-          <main className="flex-1 p-6 space-y-8 max-w-7xl mx-auto w-full">
+          <main className="flex-1 p-6 space-y-6 max-w-7xl mx-auto w-full">
             {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-slate-800 pb-5">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-[#C0D1E3] pb-4">
               <div>
                 <div className="flex items-center space-x-2">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-900/50 text-blue-400 border border-blue-700/50">
-                    <span className="w-1.5 h-1.5 mr-1.5 bg-blue-500 rounded-full animate-pulse"></span>
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-bold font-mono bg-[#EAF4FC] text-[#1450A0] border border-[#99BCE0]">
+                    <span className="w-1.5 h-1.5 mr-1.5 bg-[#3E8EDE] rounded-full animate-pulse"></span>
                     REGISTRY ONLINE
                   </span>
-                  <span className="text-xs text-slate-400">| National Crime Database Sync: 99.9%</span>
+                  <span className="text-xs text-[#526D8E]">| National Crime Database Sync: 99.9%</span>
                 </div>
-                <h1 className="text-2xl font-bold text-white tracking-tight mt-1">
-                  National FIR Registry & Case Logs
+                <h1 className="text-xl font-black text-[#1450A0] tracking-wide mt-1">
+                  National FIR Registry &amp; Case Logs
                 </h1>
               </div>
-              <div className="mt-4 md:mt-0">
+              <div className="mt-3 md:mt-0">
                 <button
                   onClick={() => alert("Downloading registry dump...")}
-                  className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 rounded-lg text-sm font-medium transition shadow-sm flex items-center space-x-2"
+                  className="glass-button-secondary px-3.5 py-1.5 text-xs font-bold shadow-sm flex items-center space-x-1.5"
                 >
-                  <Download className="w-4 h-4" />
+                  <Download className="w-3.5 h-3.5" />
                   <span>Download Registry (CSV)</span>
                 </button>
               </div>
@@ -89,29 +89,29 @@ export default function FirRegistryPage() {
             </section>
 
             {/* SECTION 2: Advanced Search & Filter */}
-            <section className="panel-surface space-y-4 p-5">
+            <section className="glass-card space-y-3 p-4">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div className="flex-1 relative">
-                  <span className="absolute inset-y-0 left-3 flex items-center text-slate-500">
-                    <Search className="w-4 h-4" />
+                  <span className="absolute inset-y-0 left-3 flex items-center text-[#526D8E]">
+                    <Search className="w-3.5 h-3.5" />
                   </span>
                   <input
                     type="text"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder="Search by FIR #, crime classification, or investigating officer..."
-                    className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-10 pr-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500/50"
+                    className="glass-input w-full pl-9 pr-4 text-xs font-medium"
                   />
                 </div>
                 <div className="flex items-center space-x-3 shrink-0">
-                  <div className="flex items-center space-x-2 text-xs text-slate-400 font-mono">
-                    <Filter className="w-4 h-4 text-slate-500" />
+                  <div className="flex items-center space-x-1.5 text-xs text-[#1450A0] font-bold">
+                    <Filter className="w-3.5 h-3.5 text-[#3E8EDE]" />
                     <span>STATUS:</span>
                   </div>
                   <select
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value)}
-                    className="bg-slate-950 border border-slate-850 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    className="glass-input text-xs font-bold"
                   >
                     <option value="All">All Case Statuses</option>
                     <option value="Active Investigation">Active Investigation</option>
@@ -132,54 +132,54 @@ export default function FirRegistryPage() {
                   title="Filterable Case Registry Records"
                   subtitle={`Displaying ${filteredFIRs.length} records matching current filters`}
                 >
-                  <div className="overflow-x-auto mt-3">
-                    <table className="w-full text-left border-collapse text-sm">
+                  <div className="overflow-x-auto mt-2">
+                    <table className="w-full text-left border-collapse text-xs">
                       <thead>
-                        <tr className="border-b border-slate-800 text-slate-400 font-mono text-xs uppercase bg-slate-900/50">
-                          <th className="py-3 px-4 font-semibold">FIR #</th>
-                          <th className="py-3 px-4 font-semibold">Classification</th>
-                          <th className="py-3 px-4 font-semibold">District</th>
-                          <th className="py-3 px-4 font-semibold">Officer</th>
-                          <th className="py-3 px-4 font-semibold">Status</th>
-                          <th className="py-3 px-4 font-semibold">Registered</th>
+                        <tr className="border-b border-[#B8C6D6] text-[#1450A0] font-sans font-bold uppercase bg-[#EBF3FB]">
+                          <th className="py-2.5 px-3">FIR #</th>
+                          <th className="py-2.5 px-3">Classification</th>
+                          <th className="py-2.5 px-3">District</th>
+                          <th className="py-2.5 px-3">Officer</th>
+                          <th className="py-2.5 px-3">Status</th>
+                          <th className="py-2.5 px-3">Registered</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-800/60 text-slate-300 font-sans">
+                      <tbody className="divide-y divide-[#D5E2F0] text-[#2C4466]">
                         {filteredFIRs.map((row) => (
                           <tr
                             key={row.fir}
                             onClick={() => setSelectedFIR(row)}
-                            className={`hover:bg-slate-850/40 cursor-pointer transition-colors ${
-                              selectedFIR?.fir === row.fir ? 'bg-blue-600/5 border-l-2 border-l-blue-500' : ''
+                            className={`hover:bg-[#EBF4FC] cursor-pointer transition-colors ${
+                              selectedFIR?.fir === row.fir ? 'bg-[#E3EEF8] border-l-4 border-l-[#3E8EDE]' : ''
                             }`}
                           >
-                            <td className="py-3.5 px-4 font-mono font-medium text-blue-400">{row.fir}</td>
-                            <td className="py-3.5 px-4 font-medium text-white">{row.crime}</td>
-                            <td className="py-3.5 px-4 text-slate-400">{row.district}</td>
-                            <td className="py-3.5 px-4 text-slate-300">{row.officer}</td>
-                            <td className="py-3.5 px-4">
+                            <td className="py-2.5 px-3 font-mono font-bold text-[#1450A0]">{row.fir}</td>
+                            <td className="py-2.5 px-3 font-semibold text-[#1A2B4C]">{row.crime}</td>
+                            <td className="py-2.5 px-3 text-[#3B5478]">{row.district}</td>
+                            <td className="py-2.5 px-3 text-[#3B5478]">{row.officer}</td>
+                            <td className="py-2.5 px-3">
                               <span
-                                className={`inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium border ${
+                                className={`inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold border ${
                                   row.status === 'Active Investigation'
-                                    ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                                    ? 'bg-[#FFF8E1] text-[#B76E00] border-[#FFE082]'
                                     : row.status === 'Charge Sheet Filed'
-                                    ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+                                    ? 'bg-[#EBF7E6] text-[#2B6317] border-[#81C765]'
                                     : row.status === 'Suspect Identified'
-                                    ? 'bg-purple-500/10 text-purple-400 border-purple-500/20'
+                                    ? 'bg-[#F3E5F5] text-[#7B1FA2] border-[#CE93D8]'
                                     : row.status === 'Case Solved'
-                                    ? 'bg-emerald-600/20 text-emerald-300 border-emerald-500/20'
-                                    : 'bg-blue-500/10 text-blue-400 border-blue-500/20'
+                                    ? 'bg-[#EBF7E6] text-[#2B6317] border-[#81C765]'
+                                    : 'bg-[#EAF4FC] text-[#1450A0] border-[#99BCE0]'
                                 }`}
                               >
                                 {row.status}
                               </span>
                             </td>
-                            <td className="py-3.5 px-4 text-slate-400 font-mono text-xs">{row.date}</td>
+                            <td className="py-2.5 px-3 text-[#526D8E] font-mono">{row.date}</td>
                           </tr>
                         ))}
                         {filteredFIRs.length === 0 && (
                           <tr>
-                            <td colSpan={6} className="py-8 text-center text-slate-500 text-xs">
+                            <td colSpan={6} className="py-8 text-center text-[#526D8E] text-xs">
                               No records match the current filter criteria.
                             </td>
                           </tr>
@@ -191,40 +191,40 @@ export default function FirRegistryPage() {
               </div>
 
               {/* Side Detail Card */}
-              <div className="panel-surface flex flex-col justify-between p-5">
+              <div className="glass-card flex flex-col justify-between p-4">
                 {selectedFIR ? (
-                  <div className="space-y-5 animate-fade-in flex flex-col h-full justify-between">
+                  <div className="space-y-4 flex flex-col h-full justify-between">
                     <div>
-                      <div className="border-b border-slate-800 pb-3 mb-4">
+                      <div className="border-b border-[#C0D1E3] pb-2.5 mb-3">
                         <div className="flex items-center justify-between">
-                          <span className="font-mono text-xs font-bold text-blue-400">{selectedFIR.fir}</span>
-                          <span className={`text-[10px] px-2 py-0.5 rounded font-bold uppercase ${
-                            selectedFIR.severity === 'Critical' ? 'bg-red-500/20 text-red-400' :
-                            selectedFIR.severity === 'High' ? 'bg-orange-500/20 text-orange-400' : 'bg-slate-800 text-slate-400'
+                          <span className="font-mono text-xs font-bold text-[#1450A0]">{selectedFIR.fir}</span>
+                          <span className={`text-[9px] px-1.5 py-0.5 rounded font-bold uppercase border ${
+                            selectedFIR.severity === 'Critical' ? 'bg-[#FDE8E8] text-[#9B1C1C] border-[#F89999]' :
+                            selectedFIR.severity === 'High' ? 'bg-[#FFF8E1] text-[#B76E00] border-[#FFE082]' : 'bg-[#EAF4FC] text-[#1450A0] border-[#99BCE0]'
                           }`}>
                             {selectedFIR.severity} Priority
                           </span>
                         </div>
-                        <h3 className="font-bold text-white text-base mt-2">{selectedFIR.crime}</h3>
-                        <p className="text-xs text-slate-550 font-mono mt-0.5">Registered: {selectedFIR.date}</p>
+                        <h3 className="font-bold text-[#1A2B4C] text-sm mt-1.5">{selectedFIR.crime}</h3>
+                        <p className="text-xs text-[#526D8E] font-mono mt-0.5">Registered: {selectedFIR.date}</p>
                       </div>
 
-                      <div className="space-y-3.5 text-xs">
+                      <div className="space-y-3 text-xs">
                         <div className="flex justify-between">
-                          <span className="text-slate-500">Jurisdiction:</span>
-                          <span className="text-slate-300 font-semibold">{selectedFIR.district}</span>
+                          <span className="text-[#526D8E]">Jurisdiction:</span>
+                          <span className="text-[#1A2B4C] font-bold">{selectedFIR.district}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-slate-500">Officer Assigned:</span>
-                          <span className="text-slate-350">{selectedFIR.officer}</span>
+                          <span className="text-[#526D8E]">Officer Assigned:</span>
+                          <span className="text-[#1A2B4C]">{selectedFIR.officer}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-slate-500">Current Progress:</span>
-                          <span className="text-slate-300 font-semibold">{selectedFIR.status}</span>
+                          <span className="text-[#526D8E]">Current Progress:</span>
+                          <span className="text-[#1450A0] font-bold">{selectedFIR.status}</span>
                         </div>
-                        <div className="pt-3 border-t border-slate-800 space-y-1.5">
-                          <span className="text-slate-500 font-semibold block">Case Summary Brief:</span>
-                          <p className="text-[11px] text-slate-400 leading-relaxed bg-slate-950/60 p-2.5 rounded border border-slate-850">
+                        <div className="pt-2.5 border-t border-[#C0D1E3] space-y-1">
+                          <span className="text-[#526D8E] font-bold block">Case Summary Brief:</span>
+                          <p className="text-[11px] text-[#2C4466] leading-relaxed bg-[#F2F7FC] p-2 rounded border border-[#C8D8E8]">
                             Telemetry indicates potential linkage with local syndicates. Surveillance logs and forensics review are ongoing. Subpoena requests for network headers submitted.
                           </p>
                         </div>
@@ -233,19 +233,19 @@ export default function FirRegistryPage() {
 
                     <button
                       onClick={() => alert(`Opening official dossier window for ${selectedFIR.fir}`)}
-                      className="mt-6 w-full py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-lg transition shadow-md flex items-center justify-center space-x-2"
+                      className="mt-4 w-full py-2 glass-button text-xs font-bold shadow-md flex items-center justify-center space-x-1.5"
                     >
                       <span>Open Dossier Details</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 ) : (
-                  <div className="h-full flex flex-col items-center justify-center text-center p-8 space-y-3">
-                    <FileText className="w-10 h-10 text-slate-600 animate-pulse" />
+                  <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-2.5">
+                    <FileText className="w-8 h-8 text-[#99ABC0]" />
                     <div>
-                      <h4 className="text-sm font-bold text-slate-400">No FIR Selected</h4>
-                      <p className="text-xs text-slate-500 mt-1 leading-normal max-w-[200px] mx-auto">
-                        Click on any FIR row in the database registry to view full intelligence briefings and details.
+                      <h4 className="text-xs font-bold text-[#1450A0]">No FIR Selected</h4>
+                      <p className="text-[11px] text-[#526D8E] mt-1 leading-normal max-w-[200px] mx-auto">
+                        Click on any FIR row in the database registry to view full intelligence briefings.
                       </p>
                     </div>
                   </div>
@@ -255,46 +255,23 @@ export default function FirRegistryPage() {
           </main>
         </div>
 
-        {/* FLOATING BUTTON: Ask Crime AI */}
+        {/* FAB */}
         <div className="fixed bottom-6 right-6 z-50">
-          <button
-            onClick={() => setIsChatOpen(true)}
-            className="flex items-center space-x-3 px-5 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold rounded-full shadow-2xl border border-blue-400/30 transition transform hover:-translate-y-0.5 active:translate-y-0 group"
-          >
-            <Bot className="w-6 h-6 text-blue-200 group-hover:rotate-12 transition-transform" />
-            <span className="tracking-wide font-semibold">Ask Crime AI</span>
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-300 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-            </span>
+          <button onClick={() => setIsChatOpen(true)} className="flex items-center space-x-2 px-4 py-2.5 glass-button shadow-xl text-xs font-bold uppercase tracking-wide">
+            <Bot className="w-4 h-4" />
+            <span>Ask Crime AI</span>
           </button>
         </div>
 
-        {/* Chat Drawer */}
         {isChatOpen && (
           <div className="fixed inset-0 z-50 flex justify-end">
-            <div
-              className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm transition-opacity"
-              onClick={() => setIsChatOpen(false)}
-            ></div>
-
-            <div className="relative w-full max-w-lg bg-slate-900 border-l border-slate-800 flex flex-col h-full shadow-2xl">
-              <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-950/40">
-                <div className="flex items-center space-x-2">
-                  <Bot className="w-5 h-5 text-blue-400" />
-                  <h3 className="font-bold text-white text-base">Crime Intelligence Assistant</h3>
-                </div>
-                <button
-                  onClick={() => setIsChatOpen(false)}
-                  className="text-slate-400 hover:text-white transition p-1 hover:bg-slate-800 rounded font-mono text-base"
-                >
-                  ✕
-                </button>
+            <div className="absolute inset-0 bg-[#142B4C]/40 backdrop-blur-xs" onClick={() => setIsChatOpen(false)}></div>
+            <div className="relative w-full max-w-lg bg-white border-l border-[#99BCE0] flex flex-col h-full shadow-2xl">
+              <div className="flex items-center justify-between px-4 py-3 glass-header">
+                <div className="flex items-center space-x-2"><Bot className="w-4 h-4 text-white" /><h3 className="font-bold text-white text-xs">Crime Intelligence Assistant</h3></div>
+                <button onClick={() => setIsChatOpen(false)} className="glass-button-secondary p-1 text-[#1450A0] rounded"><X className="w-4 h-4" /></button>
               </div>
-
-              <div className="flex-1 overflow-hidden p-6 bg-slate-950 flex flex-col">
-                <ChatInterface />
-              </div>
+              <div className="flex-1 overflow-hidden p-4 bg-[#F2F7FC]"><ChatInterface /></div>
             </div>
           </div>
         )}

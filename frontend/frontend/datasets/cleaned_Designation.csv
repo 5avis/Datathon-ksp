@@ -1,0 +1,16 @@
+DesignationID,DesignationName,Active,SortOrder
+1,Station House Officer (SHO),1,1
+2,Investigating Officer (IO),1,2
+3,Law & Order Sector In-Charge,1,3
+4,Crime Branch Investigator,1,4
+5,Cyber Crime Cell In-Charge,1,5
+6,Digital Forensics & Evidence Analyst,1,6
+7,Special Intelligence Officer,1,7
+8,Traffic Management & Highway Patrol Lead,1,8
+9,Station Writer / Crime Record Clerk,1,9
+10,Court Duty Liaison Officer,1,10
+11,Beat Officer / Field Patrol Officer,1,11
+12,Anti-Narcotics Task Force Specialist,1,12
+13,Women & Child Protection Desk In-Charge,1,13
+14,Nodal Officer (Banking & Fraud Liaison),1,14
+15,Tactical Response & SWAT Team Commander,1,15
