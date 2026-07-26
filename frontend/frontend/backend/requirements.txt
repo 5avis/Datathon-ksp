@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+langchain
+langchain-core
+langgraph
+pydantic
+pydantic-settings
+requests
+python-dotenv
+zcatalyst-sdk
+pandas
