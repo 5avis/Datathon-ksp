@@ -1,0 +1,21 @@
+{
+  "functions": {
+    "targets": [
+      "crime_function"
+    ],
+    "source": "functions",
+    "ignore": []
+  },
+  "appsail": [
+    {
+      "source": "https://crime-analytics-backend-50044094894.development.catalystappsail.in",
+      "name": "crime-analytics-backend"
+    }
+  ],
+  "slate": [
+    {
+      "name": "datathon-ksp",
+      "source": "https://datathon-ksp-uzaytijh.onslate.in"
+    }
+  ]
+}
