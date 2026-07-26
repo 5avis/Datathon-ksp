@@ -1,5 +1,13 @@
-GravityID,GravityLevel,Description,Active
-1,Special Grave Crime,Capital offences or threat to national security,true
-2,Grave Crime,Major violent or high value financial offences,true
-3,Medium Crime,Property theft and non-violent offences,true
-4,Minor Offence,Petty brawls and minor infractions,true
+GravityOffenceID,LookupValue
+1,Heinous
+2,Non-Heinous
+3,Grave Crime
+4,Special Grave Crime
+5,Capital Offence (Life / Death Penalty)
+6,Cognizable & Non-Bailable
+7,Cognizable & Bailable
+8,Non-Cognizable Offence
+9,Medium Offence
+10,Minor Infraction
+11,Petty Offence
+12,Compoundable Offence

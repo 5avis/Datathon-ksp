@@ -8,14 +8,14 @@
   },
   "appsail": [
     {
-      "source": "backend",
+      "source": "https://crime-analytics-backend-50044094894.development.catalystappsail.in",
       "name": "crime-analytics-backend"
     }
   ],
   "slate": [
     {
-      "name": "crime-analytics-frontend",
-      "source": "frontend"
+      "name": "datathon-ksp",
+      "source": "https://datathon-ksp-uzaytijh.onslate.in"
     }
   ]
 }

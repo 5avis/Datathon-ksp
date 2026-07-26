@@ -1,41 +1,41 @@
 CrimeHeadID,CrimeGroupName,Active
-1,Arms Act,true
-2,Arson,true
-3,Attempt to Murder,true
-4,Burglary,true
-5,Chain Snatching,true
-6,Cheating,true
-7,Cyber Crime,true
-8,Domestic Violence,true
-9,Dowry Death,true
-10,Drug Possession,true
-11,Forgery,true
-12,Fraud,true
-13,Grievous Hurt,true
-14,Human Trafficking,true
-15,Hurt,true
-16,Kidnapping,true
-17,Murder,true
-18,NDPS Act,true
-19,PoCSO Act,true
-20,Rape,true
-21,Rioting,true
-22,Robbery,true
-23,Sexual Harassment,true
-24,Theft,true
-25,Vehicle Theft,true
-26,Attempted Murder,true
-27,Extortion,true
-28,Criminal Intimidation,true
-29,Organized Crime Syndicate,true
-30,Ransomware & Malware Extortion,true
-31,Money Laundering & Hawala,true
-32,Interstate Vehicle Smuggling,true
-33,Drone Narcotics Contraband,true
-34,Financial Securities Fraud,true
-35,Counterfeit Currency Racket,true
-36,Illegal Firearms Manufacturing,true
-37,Identity Theft & Phishing,true
-38,Illegal Betting & Online Gaming Racket,true
-39,Land Grabbing & Real Estate Fraud,true
-40,Underworld Gangland Retaliation,true
+1,Arms Act,1
+2,Arson,1
+3,Attempt to Murder,1
+4,Burglary,1
+5,Chain Snatching,1
+6,Cheating,1
+7,Cyber Crime,1
+8,Domestic Violence,1
+9,Dowry Death,1
+10,Drug Possession,1
+11,Forgery,1
+12,Fraud,1
+13,Grievous Hurt,1
+14,Human Trafficking,1
+15,Hurt,1
+16,Kidnapping,1
+17,Murder,1
+18,NDPS Act,1
+19,PoCSO Act,1
+20,Rape,1
+21,Rioting,1
+22,Robbery,1
+23,Sexual Harassment,1
+24,Theft,1
+25,Vehicle Theft,1
+26,Attempted Murder,1
+27,Extortion,1
+28,Criminal Intimidation,1
+29,Organized Crime Syndicate,1
+30,Ransomware & Malware Extortion,1
+31,Money Laundering & Hawala,1
+32,Interstate Vehicle Smuggling,1
+33,Drone Narcotics Contraband,1
+34,Financial Securities Fraud,1
+35,Counterfeit Currency Racket,1
+36,Illegal Firearms Manufacturing,1
+37,Identity Theft & Phishing,1
+38,Illegal Betting & Online Gaming Racket,1
+39,Land Grabbing & Real Estate Fraud,1
+40,Underworld Gangland Retaliation,1
