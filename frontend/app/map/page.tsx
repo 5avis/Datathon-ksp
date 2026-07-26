@@ -7,6 +7,7 @@ import TopNavbar from '../components/TopNavbar';
 import StatisticCard from '../components/StatisticCard';
 import MapContainer from '../components/MapContainer';
 import ChatInterface from '../components/ChatInterface';
+import KarnatakaMap from '../components/KarnatakaMap';
 
 const kpis = [
   { title: 'Active Crime Zones', value: '18', change: '-2', isPositive: true, icon: 'MapPin' },
@@ -98,102 +99,7 @@ export default function MapPage() {
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
               {/* Map takes 3 cols */}
               <div className="lg:col-span-3">
-                <MapContainer title="Real-Time Crime Heatmap & Deployment Canvas" subtitle="GIS overlay with live incident markers, patrol vectors, and CCTV grid">
-                  <div className="relative w-full h-[500px] bg-[#EAF4FC] rounded-lg overflow-hidden border border-[#C0D1E3] mt-3">
-                    {/* Grid BG */}
-                    <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#38bdf8 1px, transparent 1px), radial-gradient(#38bdf8 1px, #020617 1px)', backgroundSize: '40px 40px', backgroundPosition: '0 0, 20px 20px' }}></div>
-
-                    {/* Heatmap glow zones */}
-                    {layers.heatmap && (
-                      <>
-                        <div className="absolute top-1/4 left-1/3 w-56 h-56 bg-red-600/25 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
-                        <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-orange-500/15 rounded-full blur-3xl pointer-events-none"></div>
-                        <div className="absolute top-1/2 right-1/3 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
-                      </>
-                    )}
-
-                    {/* Patrol vector SVG */}
-                    {layers.patrols && (
-                      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40">
-                        <path d="M 120 100 L 240 180 L 300 340 L 380 310" stroke="#3b82f6" strokeWidth="2" strokeDasharray="6 4" fill="none" />
-                        <path d="M 440 170 L 350 270 L 490 410" stroke="#10b981" strokeWidth="2" strokeDasharray="6 4" fill="none" />
-                        <circle cx="120" cy="100" r="4" fill="#3b82f6" />
-                        <circle cx="380" cy="310" r="4" fill="#3b82f6" />
-                        <circle cx="440" cy="170" r="4" fill="#10b981" />
-                      </svg>
-                    )}
-
-                    {/* Crime Zone Markers */}
-                    {layers.crimeZones && visibleCrimeMarkers.map(m => (
-                      <div
-                        key={m.id}
-                        className="absolute group cursor-pointer transform -translate-x-1/2 -translate-y-1/2"
-                        style={{ top: m.top, left: m.left }}
-                        onClick={() => setSelectedMarker(selectedMarker === m.id ? null : m.id)}
-                      >
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 shadow-lg hover:scale-110 transition ${riskColors[m.risk]} ${m.risk === 'Critical' ? 'animate-bounce' : ''}`}>
-                          <AlertTriangle className="w-3.5 h-3.5" />
-                        </div>
-                        {selectedMarker === m.id && (
-                          <div className="absolute top-10 left-1/2 -translate-x-1/2 bg-white border border-[#B8C6D6] text-[#1A2B4C] text-[10px] rounded-lg p-3 shadow-2xl z-20 w-48">
-                            <p className="font-bold text-[#1A3459] mb-1">{m.label}</p>
-                            <p className={`text-[9px] font-mono mb-1`}>RISK: {m.risk}</p>
-                            <p className="text-[#526D8E]">{m.activity}</p>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-
-                    {/* Police Station Markers */}
-                    {layers.stations && stationMarkers.map(ps => (
-                      <div key={ps.id} className="absolute group cursor-pointer transform -translate-x-1/2 -translate-y-1/2" style={{ top: ps.top, left: ps.left }}>
-                        <div className="w-8 h-8 rounded-full bg-blue-600/20 border-2 border-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/30 hover:scale-110 transition">
-                          <Shield className="w-3.5 h-3.5 text-[#1450A0]" />
-                        </div>
-                        <div className="absolute top-10 left-1/2 -translate-x-1/2 hidden group-hover:block bg-white border border-[#B8C6D6] text-[#1A2B4C] text-[10px] rounded p-2 shadow-xl z-20 whitespace-nowrap">
-                          <p className="font-bold text-[#1A3459]">{ps.label}</p>
-                          <p className="text-[#526D8E]">Units: {ps.units}</p>
-                        </div>
-                      </div>
-                    ))}
-
-                    {/* Overlay Controls */}
-                    <div className="absolute top-3 left-3 z-10 bg-white border border-[#B8C6D6] rounded-lg p-3 space-y-1.5 shadow-md">
-                      <span className="text-[9px] font-bold text-[#657E9E] uppercase tracking-widest block">Map Layers</span>
-                      {Object.entries({ Heatmap: 'heatmap', 'Crime Zones': 'crimeZones', 'Police Stations': 'stations', 'Patrols': 'patrols', 'CCTV Grid': 'cctv' }).map(([label, key]) => (
-                        <label key={key} className="flex items-center space-x-2 text-[11px] text-[#2C4466] cursor-pointer hover:text-[#1450A0] transition">
-                          <input
-                            type="checkbox"
-                            checked={layers[key as keyof typeof layers]}
-                            onChange={() => toggleLayer(key as keyof typeof layers)}
-                            className="rounded border-[#B8C6D6] text-blue-500 focus:ring-0 w-3 h-3"
-                          />
-                          <span>{label}</span>
-                        </label>
-                      ))}
-                    </div>
-
-                    {/* GPS badge */}
-                    <div className="absolute top-3 right-3 z-10 bg-white border border-[#B8C6D6] rounded px-2.5 py-1.5 text-[10px] font-mono text-[#2C4466] shadow-md flex items-center space-x-1.5">
-                      <Radio className="w-3 h-3 text-[#2E7D32] animate-pulse" />
-                      <span>GPS: 12.9716°N, 77.5946°E</span>
-                    </div>
-
-                    {/* Bottom Legend */}
-                    <div className="absolute bottom-3 left-3 right-3 z-10 flex justify-between items-end">
-                      <div className="bg-white border border-[#B8C6D6] rounded px-3 py-1.5 text-[10px] text-[#526D8E] flex items-center space-x-3 shadow-md">
-                        <span className="flex items-center space-x-1"><span className="w-2.5 h-2.5 rounded-full bg-red-200 border border-red-500"></span><span>Critical</span></span>
-                        <span className="flex items-center space-x-1"><span className="w-2.5 h-2.5 rounded-full bg-orange-200 border border-orange-500"></span><span>High</span></span>
-                        <span className="flex items-center space-x-1"><span className="w-2.5 h-2.5 rounded-full bg-amber-200 border border-amber-500"></span><span>Medium</span></span>
-                        <span className="flex items-center space-x-1"><span className="w-2.5 h-2.5 rounded-full bg-blue-200 border border-blue-500"></span><span>Station</span></span>
-                      </div>
-                      <button onClick={() => setSelectedMarker(null)} className="glass-button-secondary text-[10px] px-3 py-1.5 flex items-center space-x-1.5">
-                        <Crosshair className="w-3 h-3" />
-                        <span>Reset View</span>
-                      </button>
-                    </div>
-                  </div>
-                </MapContainer>
+                <KarnatakaMap />
               </div>
 
               {/* Right Panel: Zone list */}

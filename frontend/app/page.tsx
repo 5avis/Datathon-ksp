@@ -26,6 +26,7 @@ import ChartContainer from './components/ChartContainer';
 import MapContainer from './components/MapContainer';
 import TableContainer from './components/TableContainer';
 import ChatInterface from './components/ChatInterface';
+import KarnatakaMap from './components/KarnatakaMap';
 
 // --- MOCK DATA ---
 
@@ -298,128 +299,9 @@ export default function Dashboard() {
 
             {/* SECTION 3: Left - Crime Hotspot Map, Right - Live Alerts */}
             <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Left Column (2 span): Crime Hotspot Map */}
+              {/* Left Column (2 span): Real Karnataka Crime Hotspot Map */}
               <div className="lg:col-span-2 flex flex-col">
-                <MapContainer
-                  title="Live Crime Hotspot & Tactical Deployment Map"
-                  subtitle="Heatmap overlays, police stations, active crime zones, and patrol vectors"
-                >
-                  <div className="relative w-full h-[420px] bg-[#F4F9FD] rounded-md overflow-hidden border border-[#B8C6D6] flex items-center justify-center">
-                    {/* Simulated Map Background Grid & Topography */}
-                    <div
-                      className="absolute inset-0 opacity-15"
-                      style={{
-                        backgroundImage:
-                          'radial-gradient(#3E8EDE 1px, transparent 1px), radial-gradient(#3E8EDE 1px, #EAF4FC 1px)',
-                        backgroundSize: '30px 30px',
-                        backgroundPosition: '0 0, 15px 15px',
-                      }}
-                    ></div>
-
-                    {/* Heatmap Zones */}
-                    <div className="absolute top-1/4 left-1/3 w-48 h-48 bg-red-600/30 rounded-full blur-2xl pointer-events-none animate-pulse"></div>
-                    <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl pointer-events-none"></div>
-                    <div className="absolute top-1/2 right-1/3 w-36 h-36 bg-blue-600/20 rounded-full blur-xl pointer-events-none"></div>
-
-                    {/* Simulated Map Overlay Content */}
-                    <div className="relative z-10 w-full h-full p-6 flex flex-col justify-between pointer-events-none">
-                      {/* Top Controls Overlay */}
-                      <div className="flex justify-between items-start pointer-events-auto">
-                        <div className="bg-white border border-[#B8C6D6] p-3 space-y-2 rounded-lg shadow-md">
-                          <div className="text-xs font-bold text-[#1A3459] uppercase tracking-wider font-mono">Map Layers</div>
-                          <div className="flex items-center space-x-3 text-xs text-[#526D8E]">
-                            <label className="flex items-center space-x-1.5 cursor-pointer">
-                              <input type="checkbox" defaultChecked className="rounded border-[#B8C6D6] text-[#3E8EDE] focus:ring-0" />
-                              <span className="text-red-600 font-bold font-mono">Heatmap</span>
-                            </label>
-                            <label className="flex items-center space-x-1.5 cursor-pointer">
-                              <input type="checkbox" defaultChecked className="rounded border-[#B8C6D6] text-[#3E8EDE] focus:ring-0" />
-                              <span className="text-[#1450A0] font-bold font-mono">Police Stations (14)</span>
-                            </label>
-                            <label className="flex items-center space-x-1.5 cursor-pointer">
-                              <input type="checkbox" defaultChecked className="rounded border-[#B8C6D6] text-[#3E8EDE] focus:ring-0" />
-                              <span className="text-amber-600 font-bold font-mono">Crime Zones (6)</span>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div className="glass-badge bg-[#10B981]/20 text-[#34D399] border-[#10B981]/40 font-mono text-xs shadow-[0_0_15px_rgba(16,185,129,0.3)] px-3 py-2">
-                          <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse mr-2"></span>
-                          <span>GPS SATELLITE LOCK: 28.6139° N, 77.2090° E</span>
-                        </div>
-                      </div>
-
-                      {/* Mock Markers on Map */}
-                      <div className="absolute inset-0 pointer-events-auto">
-                        {/* Police Station Marker 1 */}
-                        <div className="absolute top-[30%] left-[25%] group cursor-pointer transform -translate-x-1/2 -translate-y-1/2">
-                          <div className="w-8 h-8 rounded-full bg-blue-600/20 border-2 border-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/50 group-hover:scale-110 transition">
-                            <span className="text-xs font-bold text-blue-400">PS</span>
-                          </div>
-                          <div className="absolute left-10 top-0 hidden group-hover:block bg-white border border-[#B8C6D6] text-[#1A2B4C] text-xs rounded p-2 shadow-xl whitespace-nowrap z-20">
-                            <p className="font-bold text-[#1A3459]">North District HQ</p>
-                            <p className="text-[#657E9E]">Units Available: 8 / 12</p>
-                          </div>
-                        </div>
-
-                        {/* Police Station Marker 2 */}
-                        <div className="absolute top-[65%] left-[70%] group cursor-pointer transform -translate-x-1/2 -translate-y-1/2">
-                          <div className="w-8 h-8 rounded-full bg-blue-600/20 border-2 border-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/50 group-hover:scale-110 transition">
-                            <span className="text-xs font-bold text-blue-400">PS</span>
-                          </div>
-                          <div className="absolute left-10 top-0 hidden group-hover:block bg-white border border-[#B8C6D6] text-[#1A2B4C] text-xs rounded p-2 shadow-xl whitespace-nowrap z-20">
-                            <p className="font-bold text-[#1A3459]">Cyber Cell East</p>
-                            <p className="text-[#657E9E]">Units Available: 5 / 5</p>
-                          </div>
-                        </div>
-
-                        {/* Active Crime Zone Marker 1 */}
-                        <div className="absolute top-[35%] left-[40%] group cursor-pointer transform -translate-x-1/2 -translate-y-1/2">
-                          <div className="w-8 h-8 rounded-full bg-red-600/30 border-2 border-red-500 flex items-center justify-center shadow-lg shadow-red-500/50 animate-bounce">
-                            <ShieldAlert className="w-4 h-4 text-red-400" />
-                          </div>
-                          <div className="absolute left-10 top-0 hidden group-hover:block bg-white border border-red-200 text-[#1A2B4C] text-xs rounded p-2 shadow-xl whitespace-nowrap z-20">
-                            <p className="font-bold text-red-600">CRIME ZONE: Sector 4</p>
-                            <p className="text-[#526D8E]">High frequency vehicle theft &amp; gang activity</p>
-                            <p className="text-xs text-[#657E9E] mt-1">Status: 2 Patrols En Route</p>
-                          </div>
-                        </div>
-
-                        {/* Active Crime Zone Marker 2 */}
-                        <div className="absolute top-[70%] left-[30%] group cursor-pointer transform -translate-x-1/2 -translate-y-1/2">
-                          <div className="w-8 h-8 rounded-full bg-amber-600/30 border-2 border-amber-500 flex items-center justify-center shadow-lg shadow-amber-500/50">
-                            <span className="text-xs font-bold text-amber-400">!</span>
-                          </div>
-                          <div className="absolute left-10 top-0 hidden group-hover:block bg-white border border-amber-200 text-[#1A2B4C] text-xs rounded p-2 shadow-xl whitespace-nowrap z-20">
-                            <p className="font-bold text-amber-600">CRIME ZONE: Transit Hub</p>
-                            <p className="text-[#526D8E]">Snatching hotspot predicted</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Bottom Legend Overlay */}
-                      <div className="flex justify-between items-end pointer-events-auto">
-                        <div className="bg-white border border-[#B8C6D6] rounded px-3 py-1.5 text-xs text-[#526D8E] flex items-center space-x-4 shadow-md">
-                          <div className="flex items-center space-x-1">
-                            <span className="w-3 h-3 rounded-full bg-red-100 border border-red-500"></span>
-                            <span>High Intensity Zone</span>
-                          </div>
-                          <div className="flex items-center space-x-1">
-                            <span className="w-3 h-3 rounded-full bg-amber-100 border border-amber-500"></span>
-                            <span>Medium Risk</span>
-                          </div>
-                          <div className="flex items-center space-x-1">
-                            <span className="w-3 h-3 rounded-full bg-blue-100 border border-blue-500"></span>
-                            <span>Police Outpost</span>
-                          </div>
-                        </div>
-                        <button className="glass-button-secondary text-xs px-3 py-1.5">
-                          Center Map
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </MapContainer>
+                <KarnatakaMap />
               </div>
 
               {/* Right Column: Live Alerts using AlertCard */}

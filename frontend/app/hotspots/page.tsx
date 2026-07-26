@@ -8,6 +8,7 @@ import StatisticCard from '../components/StatisticCard';
 import MapContainer from '../components/MapContainer';
 import TableContainer from '../components/TableContainer';
 import ChatInterface from '../components/ChatInterface';
+import KarnatakaMap from '../components/KarnatakaMap';
 
 const hotspotKPIs = [
   { title: 'Active Hotspots', value: '18', change: '-2', isPositive: true, icon: 'MapPin' },
@@ -71,110 +72,7 @@ export default function HotspotsPage() {
             <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Left Column (2 span): Big Map */}
               <div className="lg:col-span-2 flex flex-col">
-                <MapContainer
-                  title="Interactive Geofence & Deployment Canvas"
-                  subtitle="Visualizing live crime reports overlaid on coordinate grids"
-                >
-                  <div className="relative w-full h-[500px] bg-[#EAF4FC] rounded-lg overflow-hidden border border-[#C0D1E3]/80 flex items-center justify-center">
-                    {/* Simulated Map Background Grid */}
-                    <div
-                      className="absolute inset-0 opacity-20"
-                      style={{
-                        backgroundImage:
-                          'radial-gradient(#3E8EDE 1px, transparent 1px)',
-                        backgroundSize: '40px 40px',
-                      }}
-                    ></div>
-
-                    {/* Glowing hot zones */}
-                    <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-red-400/15 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
-                    <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-orange-400/10 rounded-full blur-3xl pointer-events-none"></div>
-
-                    {/* Vector lines representing patrol paths */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40">
-                      <path d="M 150 120 L 250 170 L 300 350 L 400 320" stroke="#3E8EDE" strokeWidth="2.5" strokeDasharray="6 4" fill="none" />
-                      <path d="M 450 180 L 350 280 L 500 420" stroke="#5FA83F" strokeWidth="2.5" strokeDasharray="6 4" fill="none" />
-                    </svg>
-
-                    <div className="relative z-10 w-full h-full p-6 flex flex-col justify-between pointer-events-none">
-                      {/* Top Overlay controls */}
-                      <div className="flex justify-between items-start pointer-events-auto">
-                        <div className="bg-white border border-[#B8C6D6] rounded-lg p-3 space-y-1.5 shadow-md">
-                          <span className="text-[10px] font-semibold text-[#526D8E] uppercase tracking-wider block">Visual Filters</span>
-                          <div className="flex flex-col space-y-1 text-xs text-[#2C4466]">
-                            <label className="flex items-center space-x-2"><input type="checkbox" defaultChecked className="rounded" /> <span>Heat Density Overlay</span></label>
-                            <label className="flex items-center space-x-2"><input type="checkbox" defaultChecked className="rounded" /> <span>Live Patrol Vectors</span></label>
-                            <label className="flex items-center space-x-2"><input type="checkbox" className="rounded" /> <span>CCTV Feeds</span></label>
-                          </div>
-                        </div>
-
-                        <div className="flex flex-col items-end space-y-2 pointer-events-auto">
-                          <div className="bg-white border border-[#B8C6D6] rounded px-2.5 py-1.5 text-[10px] font-mono text-[#2C4466] shadow-md flex items-center space-x-1.5">
-                            <Compass className="w-3.5 h-3.5 text-[#1450A0] animate-spin" />
-                            <span>GPS CORE LOCK: 12.9716° N</span>
-                          </div>
-                          {selectedZone && (
-                            <div className="bg-white border border-[#3E8EDE]/50 rounded p-2.5 text-xs text-[#1A2B4C] max-w-xs shadow-xl animate-fade-in">
-                              <p className="font-bold text-[#1450A0]">{selectedZone}</p>
-                              <p className="text-[10px] text-[#526D8E] mt-1">Patrol Team #8 dispatched. Sector frequency: 446.025 MHz.</p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Map Pins */}
-                      <div className="absolute inset-0 pointer-events-auto">
-                        {hotspotList.map((spot, i) => (
-                          <div
-                            key={spot.id}
-                            onClick={() => setSelectedZone(`${spot.id}: ${spot.zone}`)}
-                            className={`absolute group cursor-pointer transform -translate-x-1/2 -translate-y-1/2`}
-                            style={{
-                              top: `${20 + (i * 15)}%`,
-                              left: `${25 + (i * 12)}%`,
-                            }}
-                          >
-                            <div className={`w-8 h-8 rounded-full flex items-center justify-center border-2 shadow-lg hover:scale-110 transition ${
-                              spot.risk === 'Critical'
-                                ? 'bg-red-100 border-red-500 animate-bounce'
-                                : spot.risk === 'High'
-                                ? 'bg-orange-100 border-orange-500'
-                                : 'bg-amber-100 border-amber-500'
-                            }`}>
-                              <MapPin className={`w-4 h-4 ${
-                                spot.risk === 'Critical' ? 'text-red-600' : 'text-orange-600'
-                              }`} />
-                            </div>
-                            <div className="absolute top-10 left-1/2 transform -translate-x-1/2 hidden group-hover:block bg-white border border-[#B8C6D6] text-[#1A2B4C] text-[10px] rounded p-2 shadow-2xl z-20 whitespace-nowrap">
-                              <p className="font-bold">{spot.zone}</p>
-                              <p className="text-[#526D8E]">{spot.activity}</p>
-                              <p className="text-[#1450A0] mt-0.5">{spot.status}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Bottom Legend */}
-                      <div className="flex justify-between items-end pointer-events-auto">
-                        <div className="bg-white border border-[#B8C6D6] rounded px-3 py-1.5 text-[10px] text-[#526D8E] flex items-center space-x-3 shadow-md">
-                          <span className="flex items-center space-x-1"><span className="w-2.5 h-2.5 rounded-full bg-red-200 border border-red-500"></span><span>Critical</span></span>
-                          <span className="flex items-center space-x-1"><span className="w-2.5 h-2.5 rounded-full bg-orange-200 border border-orange-500"></span><span>High</span></span>
-                          <span className="flex items-center space-x-1"><span className="w-2.5 h-2.5 rounded-full bg-amber-200 border border-amber-500"></span><span>Medium</span></span>
-                        </div>
-                        <button
-                          onClick={() => {
-                            setSelectedZone(null);
-                            alert("Recalibrating satellite mapping telemetry...");
-                          }}
-                          className="glass-button-secondary text-[10px] px-3 py-1.5 flex items-center space-x-1.5"
-                        >
-                          <Crosshair className="w-3.5 h-3.5" />
-                          <span>Recalibrate Map</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </MapContainer>
+                <KarnatakaMap />
               </div>
 
               {/* Right Column: Hotspot Details Table */}
