@@ -42,17 +42,26 @@ def query_criminal_network(query: str) -> str:
 
 @tool
 def search_crime_records(query: str) -> str:
-    """Search FIRs and crime records based on keyword match in Postgres."""
+    """Search FIRs and crime records based on keyword match using Zoho Catalyst Search SDK with database fallback."""
+    try:
+        from zcatalyst_sdk_wrapper import execute_catalyst_search
+        catalyst_results = execute_catalyst_search(query)
+        if catalyst_results:
+            return f"Catalyst Data Store Search Results for '{query}':\n{catalyst_results}"
+    except Exception as e:
+        print(f"[Catalyst Search Notice] Fallback to database: {e}")
+
     session = SessionLocal()
     try:
         results = session.query(CaseMaster).filter(CaseMaster.BriefFacts.ilike(f"%{query}%")).all()
         if not results:
-            return "No FIRs found for your query."
+            return f"No FIRs found for '{query}'."
         return "\n".join([f"Case {case.CaseMasterID}: {case.BriefFacts}" for case in results])
     except Exception:
-        return "No FIRs found for your query."
+        return f"No FIRs found for '{query}'."
     finally:
         session.close()
+
 
 
 @tool

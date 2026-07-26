@@ -1,16 +1,12 @@
-<<<<<<< HEAD
 # Dependencies & Environments
 venv/
 env/
 ENV/
-=======
->>>>>>> bfcdfedaa2e87cf83b13151ac8e9c945fedc5b16
-node_modules/
 .venv/
+node_modules/
 
 # Build & Export Outputs
 .next/
-<<<<<<< HEAD
 out/
 frontend/out/
 frontend/.next/
@@ -24,13 +20,10 @@ __pycache__/
 
 # Environment Variables & Logs
 .env
+.env.local
 *.log
 catalyst-debug.log
 .catalystrc
 
 # Catalyst Local Binaries
 appsail-python/
-=======
-.env
-.env.local
->>>>>>> bfcdfedaa2e87cf83b13151ac8e9c945fedc5b16
