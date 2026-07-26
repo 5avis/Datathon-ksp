@@ -16,56 +16,57 @@ export default function InsightCard({ title, description, confidence, timestamp,
 
   switch (type) {
     case 'critical':
-      badgeColor = 'border border-red-400/30 bg-red-500/20 text-red-300 shadow-[0_0_12px_rgba(239,68,68,0.2)]';
+      badgeColor = 'bg-[#FDE8E8] text-[#9B1C1C] border-[#F89999]';
       IconComponent = Flame;
       break;
     case 'warning':
-      badgeColor = 'border border-amber-400/30 bg-amber-500/20 text-amber-300 shadow-[0_0_12px_rgba(245,158,11,0.2)]';
+      badgeColor = 'bg-[#FFF8E1] text-[#B76E00] border-[#FFE082]';
       IconComponent = AlertTriangle;
       break;
     case 'prediction':
-      badgeColor = 'border border-blue-400/30 bg-blue-500/20 text-blue-300 shadow-[0_0_12px_rgba(59,130,246,0.2)]';
+      badgeColor = 'bg-[#EAF4FC] text-[#1450A0] border-[#99BCE0]';
       IconComponent = Brain;
       break;
     case 'alert':
-      badgeColor = 'border border-purple-400/30 bg-purple-500/20 text-purple-300 shadow-[0_0_12px_rgba(168,85,247,0.2)]';
+      badgeColor = 'bg-[#EAF4FC] text-[#1450A0] border-[#99BCE0]';
       IconComponent = ShieldAlert;
       break;
   }
 
   return (
-    <div className="glass-card glass-card-hover flex flex-col space-y-2.5 p-4 backdrop-blur-xl">
+    <div className="glass-card flex flex-col space-y-2 p-3.5 border border-[#C0D1E3]">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <IconComponent className={`h-4 w-4 ${
-            type === 'critical' ? 'text-red-400 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]' :
-            type === 'warning' ? 'text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]' :
-            type === 'prediction' ? 'text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]' : 'text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]'
+            type === 'critical' ? 'text-[#D32F2F]' :
+            type === 'warning' ? 'text-[#F57C00]' :
+            'text-[#1976D2]'
           }`} />
-          <span className="text-xs font-bold uppercase tracking-wider text-white">{title}</span>
+          <span className="text-xs font-bold uppercase text-[#1450A0]">{title}</span>
         </div>
-        <span className={`glass-badge text-[10px] ${badgeColor}`}>
+        <span className={`px-2 py-0.5 rounded text-[10px] uppercase font-bold border ${badgeColor}`}>
           {type}
         </span>
       </div>
 
-      <p className="text-sm leading-relaxed text-slate-300">{description}</p>
+      <p className="text-xs leading-relaxed text-[#2C4466]">{description}</p>
 
-      <div className="flex items-center justify-between pt-1 font-mono text-[11px]">
+      <div className="flex items-center justify-between pt-1 font-mono text-xs">
         <div className="flex w-2/3 items-center space-x-2">
-          <span className="text-slate-400">Confidence:</span>
-          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-slate-950/80 border border-white/5">
+          <span className="text-[#556F90] text-[11px]">Confidence:</span>
+          <div className="h-2 flex-1 overflow-hidden rounded-full bg-[#DDE6EE] border border-[#B0C4DA] inset-shadow">
             <div
-              className={`h-full rounded-full transition-all duration-500 ${
-                confidence >= 90 ? 'bg-gradient-to-r from-emerald-500 to-teal-400 shadow-[0_0_8px_rgba(16,185,129,0.5)]' :
-                confidence >= 80 ? 'bg-gradient-to-r from-blue-500 to-indigo-400 shadow-[0_0_8px_rgba(59,130,246,0.5)]' : 'bg-gradient-to-r from-amber-500 to-orange-400 shadow-[0_0_8px_rgba(245,158,11,0.5)]'
+              className={`h-full rounded-full transition-all duration-300 ${
+                confidence >= 90 ? 'bg-gradient-to-r from-[#72D646] to-[#47A61E]' :
+                confidence >= 80 ? 'bg-gradient-to-r from-[#6BB8F0] to-[#1E60B8]' :
+                'bg-gradient-to-r from-[#FFC107] to-[#FF9800]'
               }`}
               style={{ width: `${confidence}%` }}
             ></div>
           </div>
-          <span className="font-bold text-slate-200">{confidence}%</span>
+          <span className="font-bold text-[#1450A0] text-[11px]">{confidence}%</span>
         </div>
-        <span className="text-slate-400">{timestamp}</span>
+        <span className="text-[#657E9E] text-[11px]">{timestamp}</span>
       </div>
     </div>
   );

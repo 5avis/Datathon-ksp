@@ -8,10 +8,10 @@ interface TableContainerProps {
 
 export default function TableContainer({ title, subtitle, children }: TableContainerProps) {
   return (
-    <div className="glass-card flex h-full flex-col p-6 backdrop-blur-2xl border-white/10 shadow-2xl">
-      <div className="border-b border-white/10 pb-3">
-        <h3 className="text-base font-bold text-white tracking-wide">{title}</h3>
-        <p className="mt-1 text-xs text-slate-400 font-mono">{subtitle}</p>
+    <div className="glass-card flex h-full flex-col p-4 rounded-lg">
+      <div className="border-b border-[#C0D1E3] pb-2.5 mb-2">
+        <h3 className="text-sm font-bold text-[#1450A0] tracking-wide">{title}</h3>
+        <p className="mt-0.5 text-xs text-[#526D8E] font-sans">{subtitle}</p>
       </div>
       <div className="flex-1 overflow-hidden">
         {children}

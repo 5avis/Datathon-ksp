@@ -34,11 +34,11 @@ const allLogs: LogEntry[] = [
 ];
 
 const actionTypeStyles: Record<string, { icon: any; badge: string; label: string }> = {
-  login: { icon: LogIn, badge: 'bg-blue-500/10 text-blue-400 border-blue-500/20', label: 'Login' },
-  edit: { icon: Edit, badge: 'bg-amber-500/10 text-amber-400 border-amber-500/20', label: 'Edit' },
-  view: { icon: Eye, badge: 'bg-slate-700/40 text-slate-400 border-slate-700', label: 'View' },
-  delete: { icon: Trash2, badge: 'bg-red-500/10 text-red-400 border-red-500/20', label: 'Delete' },
-  alert: { icon: AlertTriangle, badge: 'bg-orange-500/10 text-orange-400 border-orange-500/20', label: 'Alert' },
+  login: { icon: LogIn, badge: 'bg-blue-50 text-[#1450A0] border-blue-200', label: 'Login' },
+  edit: { icon: Edit, badge: 'bg-amber-50 text-amber-600 border-amber-200', label: 'Edit' },
+  view: { icon: Eye, badge: 'bg-[#EAF4FC] text-[#526D8E] border-[#B8C6D6]', label: 'View' },
+  delete: { icon: Trash2, badge: 'bg-red-50 text-red-600 border-red-200', label: 'Delete' },
+  alert: { icon: AlertTriangle, badge: 'bg-orange-50 text-orange-600 border-orange-200', label: 'Alert' },
 };
 
 export default function AuditLogsPage() {
@@ -56,15 +56,15 @@ export default function AuditLogsPage() {
 
   return (
     <AppLayout>
-      <div className="flex h-screen bg-slate-950 text-slate-100 font-sans antialiased overflow-hidden">
+      <div className="flex h-screen bg-[#EAF4FC] text-[#1F3250] font-sans antialiased overflow-hidden">
         <Sidebar />
         <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
           <TopNavbar />
           <main className="flex-1 p-6 space-y-6 max-w-7xl mx-auto w-full">
             {/* Header */}
-            <div className="border-b border-slate-800 pb-5">
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700 mb-1">SECURITY AUDIT SYSTEM</span>
-              <h1 className="text-2xl font-bold text-white tracking-tight">Platform Audit Logs & Officer Activity</h1>
+            <div className="border-b border-[#C0D1E3] pb-5">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-bold bg-[#EAF4FC] text-[#1450A0] border border-[#B8C6D6] mb-1">SECURITY AUDIT SYSTEM</span>
+              <h1 className="text-2xl font-bold text-[#1A3459] tracking-tight">Platform Audit Logs &amp; Officer Activity</h1>
             </div>
 
             {/* KPIs */}
@@ -75,17 +75,17 @@ export default function AuditLogsPage() {
             {/* Filters */}
             <div className="panel-surface flex flex-col gap-3 p-4 md:flex-row md:items-center">
               <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-500" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#657E9E]" />
                 <input
                   value={search}
                   onChange={e => setSearch(e.target.value)}
                   placeholder="Search by officer name, action, or target..."
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-9 pr-4 py-2 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full bg-[#EAF4FC] border border-[#C0D1E3] rounded-lg pl-9 pr-4 py-2 text-xs text-[#1A2B4C] focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
               <div className="flex items-center space-x-2">
-                <Filter className="w-3.5 h-3.5 text-slate-500" />
-                <select value={filterType} onChange={e => setFilterType(e.target.value)} className="bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none">
+                <Filter className="w-3.5 h-3.5 text-[#657E9E]" />
+                <select value={filterType} onChange={e => setFilterType(e.target.value)} className="bg-[#EAF4FC] border border-[#C0D1E3] rounded-lg px-3 py-2 text-xs text-[#1A2B4C] focus:outline-none">
                   <option value="all">All Event Types</option>
                   <option value="login">Login Events</option>
                   <option value="edit">Case Edits</option>
@@ -98,28 +98,28 @@ export default function AuditLogsPage() {
 
             {/* Audit Log Timeline */}
             <div className="panel-surface p-5">
-              <h3 className="text-xs font-bold text-white uppercase tracking-wide mb-4">Event Stream ({filtered.length} records)</h3>
+              <h3 className="text-xs font-bold text-[#1A3459] uppercase tracking-wide mb-4">Event Stream ({filtered.length} records)</h3>
 
               <div className="space-y-2">
                 {filtered.map(log => {
                   const meta = actionTypeStyles[log.type];
                   const Icon = meta.icon;
                   return (
-                    <div key={log.id} className={`flex items-start space-x-3 p-3.5 rounded-lg border transition hover:bg-slate-800/30 ${log.type === 'alert' ? 'border-orange-500/20 bg-orange-500/5' : 'border-slate-800 bg-slate-950/40'}`}>
+                    <div key={log.id} className={`flex items-start space-x-3 p-3.5 rounded-lg border transition hover:bg-[#EAF4FC] ${log.type === 'alert' ? 'border-orange-200 bg-orange-50/50' : 'border-[#C0D1E3] bg-white'}`}>
                       <div className={`w-7 h-7 rounded-lg border flex items-center justify-center shrink-0 ${meta.badge}`}>
                         <Icon className="w-3.5 h-3.5" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-2">
                           <div className="flex items-center space-x-2 min-w-0">
-                            <span className="text-xs font-semibold text-white">{log.officer}</span>
+                            <span className="text-xs font-semibold text-[#1A3459]">{log.officer}</span>
                             <span className={`text-[9px] font-mono uppercase px-1.5 py-0.5 rounded border ${meta.badge} shrink-0`}>{meta.label}</span>
                           </div>
-                          <span className="text-[10px] font-mono text-slate-600 shrink-0">{log.timestamp}</span>
+                          <span className="text-[10px] font-mono text-[#657E9E] shrink-0">{log.timestamp}</span>
                         </div>
-                        <p className="text-xs text-slate-400 mt-0.5">{log.action}</p>
-                        <div className="flex items-center space-x-3 mt-1 text-[10px] text-slate-600 font-mono">
-                          <span>Target: <span className="text-blue-400">{log.target}</span></span>
+                        <p className="text-xs text-[#526D8E] mt-0.5">{log.action}</p>
+                        <div className="flex items-center space-x-3 mt-1 text-[10px] text-[#657E9E] font-mono">
+                          <span>Target: <span className="text-[#1450A0]">{log.target}</span></span>
                           <span>•</span>
                           <span>IP: {log.ip}</span>
                           <span>•</span>
@@ -139,19 +139,19 @@ export default function AuditLogsPage() {
 
         {/* FAB */}
         <div className="fixed bottom-6 right-6 z-50">
-          <button onClick={() => setIsChatOpen(true)} className="flex items-center space-x-2.5 px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold rounded-full shadow-2xl border border-blue-400/30 transition transform hover:-translate-y-0.5 text-sm">
-            <Bot className="w-5 h-5 text-blue-200" /><span>Ask Crime AI</span>
+          <button onClick={() => setIsChatOpen(true)} className="glass-button flex items-center space-x-2.5 px-5 py-3 rounded-full shadow-2xl text-sm">
+            <Bot className="w-5 h-5" /><span>Ask Crime AI</span>
           </button>
         </div>
         {isChatOpen && (
           <div className="fixed inset-0 z-50 flex justify-end">
-            <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" onClick={() => setIsChatOpen(false)}></div>
-            <div className="relative w-full max-w-lg bg-slate-900 border-l border-slate-800 flex flex-col h-full shadow-2xl">
-              <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800">
-                <div className="flex items-center space-x-2"><Bot className="w-5 h-5 text-blue-400" /><h3 className="font-bold text-white text-sm">Crime Intelligence Assistant</h3></div>
-                <button onClick={() => setIsChatOpen(false)} className="text-slate-400 hover:text-white p-1 hover:bg-slate-800 rounded"><X className="w-4 h-4" /></button>
+            <div className="absolute inset-0 bg-[#1A3459]/20 backdrop-blur-sm" onClick={() => setIsChatOpen(false)}></div>
+            <div className="relative w-full max-w-lg bg-white border-l border-[#C0D1E3] flex flex-col h-full shadow-2xl">
+              <div className="glass-header flex items-center justify-between px-6 py-4">
+                <div className="flex items-center space-x-2"><Bot className="w-5 h-5 text-white" /><h3 className="font-bold text-white text-sm">Crime Intelligence Assistant</h3></div>
+                <button onClick={() => setIsChatOpen(false)} className="text-white/80 hover:text-white p-1 rounded"><X className="w-4 h-4" /></button>
               </div>
-              <div className="flex-1 overflow-hidden p-4 bg-slate-950"><ChatInterface /></div>
+              <div className="flex-1 overflow-hidden p-4 bg-[#EAF4FC]"><ChatInterface /></div>
             </div>
           </div>
         )}

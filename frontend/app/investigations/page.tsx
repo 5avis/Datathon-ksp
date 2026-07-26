@@ -69,23 +69,21 @@ const kpis = [
   { title: 'Avg. Resolution (days)', value: '28.4', change: '-3.2', isPositive: true, icon: 'CheckCircle' },
 ];
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
 const statusColors: Record<string, string> = {
-  'Active Investigation': 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-  'Forensics Review': 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-  'Suspect Identified': 'bg-purple-500/10 text-purple-400 border-purple-500/20',
-  'Charge Sheet Filed': 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-  'Court Proceedings': 'bg-slate-700/60 text-slate-300 border-slate-700',
+  'Active Investigation': 'bg-[#FFF8E1] text-[#B76E00] border-[#FFE082]',
+  'Forensics Review': 'bg-[#EAF4FC] text-[#1450A0] border-[#99BCE0]',
+  'Suspect Identified': 'bg-[#F3E5F5] text-[#7B1FA2] border-[#CE93D8]',
+  'Charge Sheet Filed': 'bg-[#EBF7E6] text-[#2B6317] border-[#81C765]',
+  'Court Proceedings': 'bg-[#EAEFF5] text-[#3B5478] border-[#C0D1E3]',
 };
 
 const severityColors: Record<string, string> = {
-  Critical: 'bg-red-500/10 text-red-400 border-red-500/20',
-  High: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
-  Medium: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-  Low: 'bg-slate-700/40 text-slate-400 border-slate-700',
+  Critical: 'bg-[#FDE8E8] text-[#9B1C1C] border-[#F89999]',
+  High: 'bg-[#FFF8E1] text-[#B76E00] border-[#FFE082]',
+  Medium: 'bg-[#FFF8E1] text-[#B76E00] border-[#FFE082]',
+  Low: 'bg-[#EBF7E6] text-[#2B6317] border-[#81C765]',
 };
 
-// ─── Component ───────────────────────────────────────────────────────────────
 export default function InvestigationsPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -109,20 +107,20 @@ export default function InvestigationsPage() {
 
   return (
     <AppLayout>
-      <div className="flex h-screen bg-slate-950 text-slate-100 font-sans antialiased overflow-hidden">
+      <div className="flex h-screen bg-[#EAF4FC] text-[#1F3250] font-sans antialiased overflow-hidden">
         <Sidebar />
         <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
           <TopNavbar />
           <main className="flex-1 p-6 space-y-6 max-w-7xl mx-auto w-full">
             {/* Header */}
-            <div className="border-b border-slate-800 pb-5">
+            <div className="border-b border-[#C0D1E3] pb-4">
               <div className="flex items-center space-x-2 mb-1">
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-900/50 text-blue-400 border border-blue-700/50">
-                  <span className="w-1.5 h-1.5 mr-1.5 bg-blue-500 rounded-full animate-pulse"></span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-bold font-mono bg-[#EAF4FC] text-[#1450A0] border border-[#99BCE0]">
+                  <span className="w-1.5 h-1.5 mr-1.5 bg-[#3E8EDE] rounded-full animate-pulse"></span>
                   CASE MANAGEMENT SYSTEM
                 </span>
               </div>
-              <h1 className="text-2xl font-bold text-white tracking-tight">Case Investigation Board</h1>
+              <h1 className="text-xl font-black text-[#1450A0] tracking-wide">Case Investigation Board</h1>
             </div>
 
             {/* KPIs */}
@@ -133,80 +131,80 @@ export default function InvestigationsPage() {
             {/* Main layout: case list + detail panel */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Case List */}
-              <div className="panel-surface flex flex-col lg:col-span-1">
-                <div className="p-4 border-b border-slate-800">
-                  <h3 className="font-semibold text-white text-sm mb-3">Case Files</h3>
+              <div className="glass-card flex flex-col lg:col-span-1">
+                <div className="p-4 border-b border-[#C0D1E3]">
+                  <h3 className="font-bold text-[#1450A0] text-xs mb-3">Case Files</h3>
                   <div className="relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-500" />
+                    <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#526D8E]" />
                     <input
                       value={searchTerm}
                       onChange={e => setSearchTerm(e.target.value)}
                       placeholder="Search cases..."
-                      className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-9 pr-3 py-2 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className="glass-input w-full pl-8 pr-3 text-xs"
                     />
                   </div>
                 </div>
-                <div className="flex-1 overflow-y-auto divide-y divide-slate-800/60">
+                <div className="flex-1 overflow-y-auto divide-y divide-[#D5E2F0]">
                   {filtered.map(c => (
                     <button
                       key={c.id}
                       onClick={() => { setSelectedId(c.id); setActiveTab('timeline'); }}
-                      className={`w-full text-left p-4 hover:bg-slate-800/40 transition ${selectedId === c.id ? 'bg-blue-600/5 border-l-2 border-l-blue-500' : ''}`}
+                      className={`w-full text-left p-3.5 hover:bg-[#EBF4FC] transition ${selectedId === c.id ? 'bg-[#E3EEF8] border-l-4 border-l-[#3E8EDE]' : ''}`}
                     >
                       <div className="flex items-start justify-between gap-2">
                         <div>
-                          <p className="font-mono text-xs font-bold text-blue-400">{c.id}</p>
-                          <p className="font-semibold text-white text-sm mt-0.5">{c.crime}</p>
-                          <p className="text-[11px] text-slate-400 mt-0.5">{c.district}</p>
+                          <p className="font-mono text-xs font-bold text-[#1450A0]">{c.id}</p>
+                          <p className="font-bold text-[#1A2B4C] text-xs mt-0.5">{c.crime}</p>
+                          <p className="text-[11px] text-[#526D8E] mt-0.5">{c.district}</p>
                         </div>
-                        <span className={`text-[9px] uppercase font-mono px-1.5 py-0.5 rounded border shrink-0 ${severityColors[c.severity]}`}>{c.severity}</span>
+                        <span className={`text-[9px] uppercase font-mono px-1.5 py-0.5 rounded border shrink-0 font-bold ${severityColors[c.severity]}`}>{c.severity}</span>
                       </div>
-                      <span className={`mt-2 inline-flex text-[10px] px-1.5 py-0.5 rounded border ${statusColors[c.status]}`}>{c.status}</span>
+                      <span className={`mt-2 inline-flex text-[10px] px-1.5 py-0.5 rounded border font-bold ${statusColors[c.status]}`}>{c.status}</span>
                     </button>
                   ))}
                   {filtered.length === 0 && (
-                    <div className="p-8 text-center text-slate-500 text-xs">No matching cases found.</div>
+                    <div className="p-8 text-center text-[#526D8E] text-xs">No matching cases found.</div>
                   )}
                 </div>
               </div>
 
               {/* Detail Panel */}
-              <div className="panel-surface flex flex-col lg:col-span-2">
+              <div className="glass-card flex flex-col lg:col-span-2">
                 {!selected ? (
                   <div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-3">
-                    <FileText className="w-10 h-10 text-slate-700" />
+                    <FileText className="w-10 h-10 text-[#99ABC0]" />
                     <div>
-                      <p className="text-slate-400 font-semibold text-sm">No Case Selected</p>
-                      <p className="text-slate-600 text-xs mt-1">Select a case from the list to view investigation details.</p>
+                      <p className="text-[#1450A0] font-bold text-sm">No Case Selected</p>
+                      <p className="text-[#526D8E] text-xs mt-1">Select a case from the list to view investigation details.</p>
                     </div>
                   </div>
                 ) : (
                   <>
                     {/* Detail Header */}
-                    <div className="p-5 border-b border-slate-800">
+                    <div className="p-4 border-b border-[#C0D1E3]">
                       <div className="flex items-start justify-between">
                         <div>
                           <div className="flex items-center space-x-2">
-                            <span className="font-mono text-xs font-bold text-blue-400">{selected.id}</span>
-                            <span className={`text-[9px] uppercase font-mono px-1.5 py-0.5 rounded border ${severityColors[selected.severity]}`}>{selected.severity}</span>
+                            <span className="font-mono text-xs font-bold text-[#1450A0]">{selected.id}</span>
+                            <span className={`text-[9px] uppercase font-mono px-1.5 py-0.5 rounded border font-bold ${severityColors[selected.severity]}`}>{selected.severity}</span>
                           </div>
-                          <h2 className="text-lg font-bold text-white mt-1">{selected.crime}</h2>
-                          <p className="text-xs text-slate-400">{selected.district} • Registered: {selected.date}</p>
+                          <h2 className="text-base font-black text-[#1450A0] mt-1">{selected.crime}</h2>
+                          <p className="text-xs text-[#526D8E]">{selected.district} • Registered: {selected.date}</p>
                         </div>
-                        <span className={`text-[10px] px-2 py-0.5 rounded border ${statusColors[selected.status]}`}>{selected.status}</span>
+                        <span className={`text-[10px] px-2 py-0.5 rounded border font-bold ${statusColors[selected.status]}`}>{selected.status}</span>
                       </div>
                     </div>
 
                     {/* Tabs */}
-                    <div className="flex border-b border-slate-800 px-4 shrink-0">
+                    <div className="flex border-b border-[#C0D1E3] px-3 bg-[#EBF3FB] shrink-0">
                       {(['timeline', 'evidence', 'officers', 'notes'] as const).map(tab => (
                         <button
                           key={tab}
                           onClick={() => setActiveTab(tab)}
-                          className={`px-4 py-3 text-xs font-semibold capitalize transition border-b-2 ${
+                          className={`px-3 py-2 text-xs font-bold capitalize transition ${
                             activeTab === tab
-                              ? 'border-blue-500 text-blue-400'
-                              : 'border-transparent text-slate-500 hover:text-slate-300'
+                              ? 'web20-tab-active border-t border-x border-[#A0B4CC]'
+                              : 'web20-tab-inactive'
                           }`}
                         >
                           {tab}
@@ -215,26 +213,26 @@ export default function InvestigationsPage() {
                     </div>
 
                     {/* Tab Content */}
-                    <div className="flex-1 overflow-y-auto p-5">
+                    <div className="flex-1 overflow-y-auto p-4">
                       {/* Timeline Tab */}
                       {activeTab === 'timeline' && (
-                        <div className="relative pl-6 space-y-6 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-800">
+                        <div className="relative pl-6 space-y-5 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-[#B8C6D6]">
                           {(timelines[selected.id] ?? []).map((step, i) => (
                             <div key={i} className="relative">
-                              <div className={`absolute -left-6 top-0.5 w-4 h-4 rounded-full border-2 flex items-center justify-center bg-slate-950 ${
-                                step.status === 'completed' ? 'border-emerald-500' :
-                                step.status === 'active' ? 'border-blue-500 animate-pulse' : 'border-slate-700'
+                              <div className={`absolute -left-6 top-1 w-4 h-4 rounded-full border-2 flex items-center justify-center bg-white ${
+                                step.status === 'completed' ? 'border-[#388E3C]' :
+                                step.status === 'active' ? 'border-[#1976D2] animate-pulse' : 'border-[#A0B2C6]'
                               }`}>
-                                {step.status === 'completed' && <CheckCircle2 className="w-2.5 h-2.5 text-emerald-400" />}
-                                {step.status === 'active' && <Clock className="w-2.5 h-2.5 text-blue-400" />}
-                                {step.status === 'pending' && <div className="w-1.5 h-1.5 rounded-full bg-slate-700"></div>}
+                                {step.status === 'completed' && <CheckCircle2 className="w-2.5 h-2.5 text-[#388E3C]" />}
+                                {step.status === 'active' && <Clock className="w-2.5 h-2.5 text-[#1976D2]" />}
+                                {step.status === 'pending' && <div className="w-1.5 h-1.5 rounded-full bg-[#B0C2D6]"></div>}
                               </div>
                               <div>
                                 <div className="flex items-center justify-between">
-                                  <span className={`text-xs font-bold ${step.status === 'active' ? 'text-blue-400' : step.status === 'completed' ? 'text-white' : 'text-slate-500'}`}>{step.stage}</span>
-                                  <span className="text-[10px] font-mono text-slate-500">{step.date}</span>
+                                  <span className={`text-xs font-bold ${step.status === 'active' ? 'text-[#1450A0]' : step.status === 'completed' ? 'text-[#1A2B4C]' : 'text-[#657E9E]'}`}>{step.stage}</span>
+                                  <span className="text-[10px] font-mono text-[#526D8E]">{step.date}</span>
                                 </div>
-                                <p className="text-xs text-slate-400 mt-1 leading-relaxed">{step.detail}</p>
+                                <p className="text-xs text-[#2C4466] mt-0.5 leading-relaxed">{step.detail}</p>
                               </div>
                             </div>
                           ))}
@@ -243,40 +241,40 @@ export default function InvestigationsPage() {
 
                       {/* Evidence Tab */}
                       {activeTab === 'evidence' && (
-                        <div className="space-y-3">
+                        <div className="space-y-2.5">
                           {(evidence[selected.id] ?? []).map(ev => (
-                            <div key={ev.id} className="flex items-start space-x-3 p-4 bg-slate-950/60 border border-slate-850 rounded-lg hover:border-slate-700 transition">
-                              <div className="p-2 bg-slate-800 rounded-lg shrink-0">
-                                <ev.icon className="w-4 h-4 text-blue-400" />
+                            <div key={ev.id} className="flex items-start space-x-3 p-3 bg-white border border-[#C0D1E3] rounded hover:border-[#3E8EDE] transition">
+                              <div className="p-2 bg-[#EAF4FC] border border-[#99BCE0] rounded shrink-0">
+                                <ev.icon className="w-4 h-4 text-[#1450A0]" />
                               </div>
                               <div>
                                 <div className="flex items-center space-x-2">
-                                  <span className="text-xs font-bold text-white">{ev.type}</span>
-                                  <span className="text-[9px] font-mono text-slate-500">{ev.id}</span>
+                                  <span className="text-xs font-bold text-[#1450A0]">{ev.type}</span>
+                                  <span className="text-[9px] font-mono text-[#526D8E]">{ev.id}</span>
                                 </div>
-                                <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">{ev.desc}</p>
+                                <p className="text-xs text-[#2C4466] mt-0.5 leading-relaxed">{ev.desc}</p>
                               </div>
                             </div>
                           ))}
                           {!(evidence[selected.id]?.length) && (
-                            <div className="text-center text-slate-600 text-xs py-8">No evidence logged for this case yet.</div>
+                            <div className="text-center text-[#526D8E] text-xs py-8">No evidence logged for this case yet.</div>
                           )}
                         </div>
                       )}
 
                       {/* Officers Tab */}
                       {activeTab === 'officers' && (
-                        <div className="space-y-3">
+                        <div className="space-y-2.5">
                           {(officers[selected.id] ?? []).map(o => (
-                            <div key={o.badge} className="flex items-center space-x-4 p-4 bg-slate-950/60 border border-slate-850 rounded-lg hover:border-slate-700 transition">
-                              <div className="w-10 h-10 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-xs font-bold text-blue-400 shrink-0">
+                            <div key={o.badge} className="flex items-center space-x-3 p-3 bg-white border border-[#C0D1E3] rounded hover:border-[#3E8EDE] transition">
+                              <div className="w-9 h-9 rounded-full bg-[#EAF4FC] border border-[#99BCE0] flex items-center justify-center text-xs font-bold text-[#1450A0] shrink-0">
                                 {o.name.split(' ').map(w => w[0]).join('').slice(0, 2)}
                               </div>
                               <div className="flex-1">
-                                <p className="text-xs font-bold text-white">{o.name}</p>
-                                <p className="text-[11px] text-slate-400">{o.role} • Badge: {o.badge}</p>
+                                <p className="text-xs font-bold text-[#1450A0]">{o.name}</p>
+                                <p className="text-[11px] text-[#526D8E]">{o.role} • Badge: {o.badge}</p>
                               </div>
-                              <span className="text-[10px] font-mono px-2 py-0.5 bg-slate-800 text-slate-400 rounded">{o.rank}</span>
+                              <span className="text-[10px] font-mono px-2 py-0.5 bg-[#EBF3FB] text-[#1450A0] border border-[#C0D1E3] rounded font-bold">{o.rank}</span>
                             </div>
                           ))}
                         </div>
@@ -284,11 +282,11 @@ export default function InvestigationsPage() {
 
                       {/* Notes Tab */}
                       {activeTab === 'notes' && (
-                        <div className="space-y-4">
+                        <div className="space-y-3">
                           <div className="space-y-2">
                             {notes.map((n, i) => (
-                              <div key={i} className="p-3 bg-slate-950/60 border border-slate-850 rounded-lg text-xs text-slate-300 leading-relaxed">
-                                <span className="text-[10px] font-mono text-slate-600 block mb-1">Note #{i + 1}</span>
+                              <div key={i} className="p-3 bg-white border border-[#C0D1E3] rounded text-xs text-[#2C4466] leading-relaxed">
+                                <span className="text-[10px] font-mono text-[#526D8E] block mb-1">Note #{i + 1}</span>
                                 {n}
                               </div>
                             ))}
@@ -299,13 +297,13 @@ export default function InvestigationsPage() {
                               onChange={e => setNote(e.target.value)}
                               onKeyDown={e => e.key === 'Enter' && addNote()}
                               placeholder="Add an investigation note..."
-                              className="flex-1 bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                              className="flex-1 glass-input text-xs"
                             />
                             <button
                               onClick={addNote}
-                              className="px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition"
+                              className="px-3 py-1.5 glass-button text-xs"
                             >
-                              <Plus className="w-4 h-4" />
+                              <Plus className="w-3.5 h-3.5" />
                             </button>
                           </div>
                         </div>
@@ -320,22 +318,21 @@ export default function InvestigationsPage() {
 
         {/* FAB */}
         <div className="fixed bottom-6 right-6 z-50">
-          <button onClick={() => setIsChatOpen(true)} className="flex items-center space-x-2.5 px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold rounded-full shadow-2xl border border-blue-400/30 transition transform hover:-translate-y-0.5 group text-sm">
-            <Bot className="w-5 h-5 text-blue-200 group-hover:rotate-12 transition-transform" />
+          <button onClick={() => setIsChatOpen(true)} className="flex items-center space-x-2 px-4 py-2.5 glass-button shadow-xl text-xs font-bold uppercase tracking-wide">
+            <Bot className="w-4 h-4" />
             <span>Ask Crime AI</span>
-            <span className="flex h-2 w-2 relative"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-300 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span></span>
           </button>
         </div>
 
         {isChatOpen && (
           <div className="fixed inset-0 z-50 flex justify-end">
-            <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" onClick={() => setIsChatOpen(false)}></div>
-            <div className="relative w-full max-w-lg bg-slate-900 border-l border-slate-800 flex flex-col h-full shadow-2xl">
-              <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-950/40">
-                <div className="flex items-center space-x-2"><Bot className="w-5 h-5 text-blue-400" /><h3 className="font-bold text-white text-sm">Crime Intelligence Assistant</h3></div>
-                <button onClick={() => setIsChatOpen(false)} className="text-slate-400 hover:text-white p-1 hover:bg-slate-800 rounded"><X className="w-4 h-4" /></button>
+            <div className="absolute inset-0 bg-[#142B4C]/40 backdrop-blur-xs" onClick={() => setIsChatOpen(false)}></div>
+            <div className="relative w-full max-w-lg bg-white border-l border-[#99BCE0] flex flex-col h-full shadow-2xl">
+              <div className="flex items-center justify-between px-4 py-3 glass-header">
+                <div className="flex items-center space-x-2"><Bot className="w-4 h-4 text-white" /><h3 className="font-bold text-white text-xs">Crime Intelligence Assistant</h3></div>
+                <button onClick={() => setIsChatOpen(false)} className="glass-button-secondary p-1 text-[#1450A0] rounded"><X className="w-4 h-4" /></button>
               </div>
-              <div className="flex-1 overflow-hidden p-4 bg-slate-950"><ChatInterface /></div>
+              <div className="flex-1 overflow-hidden p-4 bg-[#F2F7FC]"><ChatInterface /></div>
             </div>
           </div>
         )}
